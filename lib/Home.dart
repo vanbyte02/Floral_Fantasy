@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+       centretitle: true;
         title: const Text('Floral Fantasy'),
       ),
       body: GridView.builder(
