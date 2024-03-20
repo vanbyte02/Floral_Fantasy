@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'Home.dart';
 
 
 
@@ -232,6 +233,46 @@ class _DescriptionFloversState extends State<DescriptionFlovers> {
               ],
             ),
           ),
+          bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 6.0,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.favorite_border),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()
+               ),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.local_grocery_store),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()
+               ),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()
+               ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
         );
       }
     }

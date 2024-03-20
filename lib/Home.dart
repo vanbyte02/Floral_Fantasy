@@ -1,13 +1,45 @@
 import 'package:flutter/material.dart';
+import 'Authorization.dart';
 import 'modul/DataBase.dart';
 import 'Flowers.dart';
 
 
 
-//Главный экран магазина
-class Home extends StatelessWidget {
-  const Home({super. key});
 
+//Главный экран магазина
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<Flowers> cart = [];
+  List<Flowers> like = [];
+  
+
+  void toggleCart(Flowers flower) {
+    setState(() {
+      if (cart.contains(flower)) {
+        cart.remove(flower);
+      } else {
+        cart.add(flower);
+      }
+    });
+  }
+
+  void toggleLike(Flowers flower) {
+    setState(() {
+      if (like.contains(flower)) {
+        like.remove(flower);
+      } else {
+        like.add(flower);
+      }
+    });
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +48,6 @@ class Home extends StatelessWidget {
         title: const Text('Floral Fantasy'),
       ),
       body: GridView.builder(
-        
         padding: const EdgeInsets.all(8),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -55,8 +86,8 @@ class Home extends StatelessWidget {
               children: <Widget> [
                 Image.network(
                   flowersList[index].image,
-                  height: 90,
-                  width: 90,
+                  height: 75,
+                  width: 75,
                   ),
                 const SizedBox(height: 5),
                 Text(
@@ -64,7 +95,7 @@ class Home extends StatelessWidget {
                   flowersList[index].name,
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -74,15 +105,108 @@ class Home extends StatelessWidget {
                   flowersList[index].price,
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ),
-                
+                const SizedBox(height: 25),
+                Row(
+                children: <Widget>[
+                  const SizedBox(width: 10),
+                  Center(
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.local_grocery_store,
+                        size: 20,
+                        color: Colors.black,
+                      ),
+                       onPressed: () => toggleCart(flowersList[index]),
+                    ),
+                  ),
+                  ),
+                  Center(
+                  child: Container(
+                     width: 50,
+                    height: 50,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.favorite_border,
+                        size: 20,
+                        color: Colors.red,
+                      ),
+                      onPressed: () => toggleLike(flowersList[index]),
+                    ),
+                  ),
+                  ),
+                ],
+                )
               ],
             ),
           );
         },
       ),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 6,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.favorite_border
+                ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Authorization()
+               ),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.local_grocery_store
+                ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()
+               ),
+                );
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.home
+                ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()
+               ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

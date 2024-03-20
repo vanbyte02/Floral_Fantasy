@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Authorization.dart';
+//import 'Authorization.dart';
+import 'Home.dart';
 
 
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor:const  Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
       ),
-      home: const Authorization(),
+      home: const Home(),
     );
   }
 }
