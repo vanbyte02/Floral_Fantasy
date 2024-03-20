@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centretitle: true,
         title: const Text('Floral Fantasy'),
       ),
       body: GridView.builder(
