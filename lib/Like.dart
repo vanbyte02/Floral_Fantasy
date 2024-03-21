@@ -2,64 +2,58 @@ import 'package:flutter/material.dart';
 import 'modul/DataBase.dart';
 import 'Home.dart';
 
-class CartPage extends StatelessWidget {
-  final List<Flowers> cartItems;
+class LikePage extends StatelessWidget {
+  final List<Flowers> likeItems;
 
-  CartPage({required this.cartItems});
+LikePage({required this.likeItems});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Избранное'),
+        title: const Text('Избранное'),
       ),
       body: ListView.builder(
-        itemCount: cartItems.length,
+        itemCount: likeItems.length,
         itemBuilder: (context, index) {
           return ListTile(
             leading: Image.network(
-              cartItems[index].image, 
+              likeItems[index].image, 
               width: 50, 
               height: 50
               ),
             title: Text(
-              cartItems[index].name
+              likeItems[index].name
               ),
             subtitle: Text(
-              cartItems[index].price
+              likeItems[index].price
               ),
           );
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 6.0,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.favorite_border),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()
-               ),
-                );
-              },
+              icon: const Icon(
+                Icons.local_grocery_store
+                ),
+              onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.local_grocery_store),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()
-               ),
-                );
-              },
+              icon: const Icon(
+                Icons.favorite_border,
+                color: Colors.red,
+                ),
+              onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.home),
+              icon: const Icon(
+                Icons.home),
               onPressed: () {
                 Navigator.push(
                   context,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'modul/DataBase.dart';
 import 'Home.dart';
+import 'Like.dart';
 
 class CartPage extends StatelessWidget {
   final List<Flowers> cartItems;
@@ -11,7 +12,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Корзина'),
+        title: const Text('Корзина'),
       ),
       body: ListView.builder(
         itemCount: cartItems.length,
@@ -24,34 +25,27 @@ class CartPage extends StatelessWidget {
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 6.0,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.favorite_border),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()
-               ),
-                );
-              },
+              icon: const Icon(
+                Icons.local_grocery_store
+                ),
+              onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.local_grocery_store),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()
-               ),
-                );
-              },
+              icon: const Icon(
+                Icons.favorite_border,
+                color: Colors.red,
+                ),
+              onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               onPressed: () {
                 Navigator.push(
                   context,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Authorization.dart';
+import 'Cart.dart';
+import 'Like.dart';
 import 'modul/DataBase.dart';
 import 'Flowers.dart';
 
@@ -45,7 +46,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        centretitle: true,
+        centerTitle: true,
         title: const Text('Floral Fantasy'),
       ),
       body: GridView.builder(
@@ -149,38 +150,39 @@ class _HomeState extends State<Home> {
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 6,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(
-                Icons.favorite_border
-                ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Authorization()
-               ),
-                );
-              },
-            ),
-            IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.local_grocery_store
                 ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Home()
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
                ),
                 );
               },
             ),
             IconButton(
-              icon: Icon(
+              icon: const Icon(
+                Icons.favorite_border,
+                color: Colors.red,
+                ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
+               ),
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(
                 Icons.home
                 ),
               onPressed: () {

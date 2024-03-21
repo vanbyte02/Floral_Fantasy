@@ -24,9 +24,9 @@ class Authorization extends StatelessWidget {
             Container(
                   width: 400,
                   height: 50,
-                  color: Colors.white,
                   child: const Center(
-                      child: TextField(decoration: InputDecoration(
+                      child: TextField(
+                    decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     icon: Icon(Icons.android),
                     hintText: "Введите логин",
