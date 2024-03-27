@@ -82,7 +82,7 @@ class Account extends StatelessWidget {
             IconButton(
               icon: const Icon(
                 Icons.android,//Личный кабинет
-                color: Colors.black,
+                color: Colors.green,
                 size: 25,
                 ),
               onPressed: () {},
