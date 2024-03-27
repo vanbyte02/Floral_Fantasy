@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'modul/DataBase.dart';
 import 'Flowers.dart';
 import 'Cart.dart';
+import 'PersonalAccount.dart';
 
 class LikePage extends StatelessWidget {
   final List<Flowers> likeItems;
 
-LikePage({required this.likeItems});
+  LikePage({required this.likeItems});
 
   @override
   Widget build(BuildContext context) {
@@ -18,46 +19,57 @@ LikePage({required this.likeItems});
       body: ListView.builder(
         itemCount: likeItems.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: Image.network(
-              likeItems[index].image, 
-              width: 50, 
-              height: 50
-              ),
-            title: Text(
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-              likeItems[index].name
-              ),
-            subtitle: Text(
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-              ),
-              '${likeItems[index].price} \Руб'
-              ),
-              trailing: IconButton(
-              icon: const Icon(
-                Icons.close, 
-                color: Colors.black
+          return Dismissible(
+            key: UniqueKey(),
+            onDismissed: (_) {
+              CartLike.like.removeAt(index);
+            },
+            direction: DismissDirection.endToStart, 
+            background: Container(
+              color: Colors.red,
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 20),
+              child: const Icon(
+                Icons.delete, 
+                color: Colors.white
                 ),
-              onPressed: () {},
             ),
-               onTap: () {
-             Navigator.push( 
-          context,
-          MaterialPageRoute(builder: (context) =>  DescriptionFlovers(
-                    name: flowersList[index].name,
-                    price: flowersList[index].price,
-                    description: flowersList[index].description,
-                    specifications: flowersList[index].specifications,
-                    //video: flowersList[index].video,
-                    fimage: fimageList[index].fimage,)
+            child: ListTile(
+              leading: Image.network(
+                likeItems[index].image,
+                width: 50,
+                height: 50,
+              ),
+              title: Text(
+                likeItems[index].name,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              subtitle: Text(
+                '${likeItems[index].price} Руб',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DescriptionFlovers(
+                        name: likeItems[index].name,
+                        price: likeItems[index].price,
+                        description: likeItems[index].description,
+                        specifications: likeItems[index].specifications,
+                        id: flowersList[index].id,
+                        //video: likeItems[index].video,
+                        fimage: fimageList[index].fimage,
+                      )),
+                );
+              },
             ),
-          );
-        },
           );
         },
       ),
@@ -69,32 +81,31 @@ LikePage({required this.likeItems});
           children: <Widget>[
             IconButton(
               icon: const Icon(
-                Icons.local_grocery_store,//Корзина
+                Icons.local_grocery_store, //Корзина
                 color: Colors.black,
                 size: 25,
-                ),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)
-               ),
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)),
                 );
-              }
+              },
             ),
             IconButton(
               icon: const Icon(
-                Icons.favorite_border,//Избранное
+                Icons.favorite_border, //Избранное
                 color: Colors.red,
                 size: 25,
-                ),
+              ),
               onPressed: () {},
             ),
             IconButton(
               icon: const Icon(
-                Icons.home,//Гл.Экран
+                Icons.home, //Гл.Экран
                 color: Colors.black,
                 size: 25,
-                ),
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -102,10 +113,16 @@ LikePage({required this.likeItems});
             IconButton(
               icon: const Icon(
                 Icons.android,//Личный кабинет
-                color: Colors.black,
+                color: Colors.green,
                 size: 25,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Account()
+                        ),
+                      );
+                    },
             ),
           ],
         ),
