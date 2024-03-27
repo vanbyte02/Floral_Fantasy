@@ -5,12 +5,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'modul/DataBase.dart';
 import 'Like.dart';
 import 'Cart.dart';
+import 'PersonalAccount.dart';
 
 
 
 
 //Подробная информация о цветах
 class DescriptionFlovers extends StatefulWidget {
+  final String id;
   final String name;
   final int price;
   final String description;
@@ -20,6 +22,7 @@ class DescriptionFlovers extends StatefulWidget {
 
   const DescriptionFlovers({
     Key? key,
+    required this.id,
     required this.name,
     required this.price,
     required this.description,
@@ -302,10 +305,16 @@ class _DescriptionFloversState extends State<DescriptionFlovers> {
             IconButton(
               icon: const Icon(
                 Icons.android,//Личный кабинет
-                color: Colors.black,
+                color: Colors.green,
                 size: 25,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Account()
+                        ),
+                      );
+                    },
             ),
           ],
         ),
