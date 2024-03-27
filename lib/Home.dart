@@ -16,26 +16,30 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Flowers> cart = [];
-  List<Flowers> like = [];
+  Set<int> likedIndexes = Set();
+  Set<int> cartIndexes = Set();
   
 
-  void toggleCart(Flowers flower) {
+  void addCart(int index) { 
     setState(() {
-      if (cart.contains(flower)) {
-        cart.remove(flower);
+      if (cartIndexes.contains(index)) {
+        cartIndexes.remove(index);
+        CartLike.cart.remove(flowersList[index]);
       } else {
-        cart.add(flower);
+        cartIndexes.add(index);
+        CartLike.cart.add(flowersList[index]);
       }
     });
   }
 
-  void toggleLike(Flowers flower) {
+  void addLike(int index) { 
     setState(() {
-      if (like.contains(flower)) {
-        like.remove(flower);
+      if (likedIndexes.contains(index)) {
+        likedIndexes.remove(index);
+        CartLike.like.remove(flowersList[index]);
       } else {
-        like.add(flower);
+        likedIndexes.add(index);
+        CartLike.like.add(flowersList[index]);
       }
     });
   }
@@ -53,8 +57,8 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(8),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 25,
-          crossAxisSpacing: 25,
+          mainAxisSpacing: 15,
+          crossAxisSpacing: 15,
         ),
         itemCount: flowersList.length,
         itemBuilder: (context, index) {
@@ -104,44 +108,32 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 5),
                 Text(
                   textAlign: TextAlign.center,
-                  flowersList[index].price,
+                  '${flowersList[index].price} \Руб',
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 14,
                   ),
                 ),
-                const SizedBox(height: 25),
+
                 Row(
                 children: <Widget>[
                   const SizedBox(width: 10),
-                  Center(
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    child: IconButton(
-                      icon: const Icon(
+                    IconButton(
+                      icon: Icon(
                         Icons.local_grocery_store,
                         size: 20,
-                        color: Colors.black,
+                        color: cartIndexes.contains(index) ? Colors.green : Colors.black,
                       ),
-                       onPressed: () => toggleCart(flowersList[index]),
+                       onPressed: () => addCart(index),
                     ),
-                  ),
-                  ),
-                  Center(
-                  child: Container(
-                     width: 50,
-                    height: 50,
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.favorite_border,
+                    IconButton(
+                      icon: Icon(
+                        Icons.favorite,
                         size: 20,
-                        color: Colors.red,
+                        color: likedIndexes.contains(index) ? Colors.red : Colors.black,
                       ),
-                      onPressed: () => toggleLike(flowersList[index]),
+                      onPressed: () => addLike(index),
                     ),
-                  ),
-                  ),
                 ],
                 )
               ],
@@ -158,12 +150,14 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             IconButton(
               icon: const Icon(
-                Icons.local_grocery_store
+                Icons.local_grocery_store,
+                color: Colors.black,
+                size: 25,
                 ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)
                ),
                 );
               },
@@ -172,26 +166,31 @@ class _HomeState extends State<Home> {
               icon: const Icon(
                 Icons.favorite_border,
                 color: Colors.red,
+                size: 25,
                 ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
+                  MaterialPageRoute(builder: (context) => LikePage(likeItems: CartLike.like)
                ),
                 );
               },
             ),
             IconButton(
               icon: const Icon(
-                Icons.home
+                Icons.home,
+                color: Colors.black,
+                size: 25,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()
-               ),
-                );
-              },
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(
+                Icons.android,//Личный кабинет
+                color: Colors.black,
+                size: 25,
+                ),
+              onPressed: () {},
             ),
           ],
         ),
@@ -199,17 +198,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

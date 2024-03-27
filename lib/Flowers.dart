@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'Home.dart';
+import 'modul/DataBase.dart';
+import 'Like.dart';
+import 'Cart.dart';
 
 
 
@@ -10,7 +12,7 @@ import 'Home.dart';
 //Подробная информация о цветах
 class DescriptionFlovers extends StatefulWidget {
   final String name;
-  final String price;
+  final int price;
   final String description;
   final String specifications;
   //final String video;
@@ -32,7 +34,6 @@ class DescriptionFlovers extends StatefulWidget {
 
 class _DescriptionFloversState extends State<DescriptionFlovers> {
   int activeIndex = 0; 
-
  
  @override
   Widget build(BuildContext context) {
@@ -95,7 +96,7 @@ class _DescriptionFloversState extends State<DescriptionFlovers> {
                       mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        widget.name, //Название товара
+                        widget.name, 
                         style: const TextStyle(
                         fontSize: 20, 
                         fontWeight: FontWeight.w600,
@@ -105,12 +106,32 @@ class _DescriptionFloversState extends State<DescriptionFlovers> {
                       const SizedBox(height: 15
                       ), 
                       Text(
-                        widget.price, //Цена товара
+                        '${widget.price} \Руб',
                         style: const TextStyle(
                         fontSize: 19, 
                         fontWeight: FontWeight.w400,
                         color: Colors.black
                         ),
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                      icon: const Icon(
+                        Icons.local_grocery_store,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                       onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.favorite,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                        onPressed: () {},
+                    ),
+                        ]
                       ),
                       const SizedBox(height: 5),
                       ],
@@ -172,7 +193,7 @@ class _DescriptionFloversState extends State<DescriptionFlovers> {
                 left: 20,  
                 right: 20
               ),
-              height: 670, //высота
+              height: 800, //высота
               width: 400, //ширина
                  child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -234,41 +255,57 @@ class _DescriptionFloversState extends State<DescriptionFlovers> {
             ),
           ),
           bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 6.0,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 6,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.favorite_border),
+              icon: const Icon(
+                Icons.local_grocery_store,//Корзина
+                color: Colors.black,
+                size: 25,
+                ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Home()
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)
                ),
                 );
               },
             ),
             IconButton(
-              icon: Icon(Icons.local_grocery_store),
+              icon: const Icon(
+                Icons.favorite_border,//Избранное
+                color: Colors.red,
+                size: 25,
+                ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Home()
+                  MaterialPageRoute(builder: (context) => LikePage(likeItems: CartLike.like)
                ),
                 );
               },
             ),
             IconButton(
-              icon: Icon(Icons.home),
+              icon: const Icon(
+                Icons.home,//Гл.Экран
+                color: Colors.black,
+                size: 25,
+                ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Home()
-               ),
-                );
+                Navigator.pop(context);
               },
+            ),
+            IconButton(
+              icon: const Icon(
+                Icons.android,//Личный кабинет
+                color: Colors.black,
+                size: 25,
+                ),
+              onPressed: () {},
             ),
           ],
         ),
