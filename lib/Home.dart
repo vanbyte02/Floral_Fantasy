@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'PersonalAccount.dart';
 import 'Cart.dart';
 import 'Like.dart';
 import 'modul/DataBase.dart';
@@ -81,6 +82,7 @@ class _HomeState extends State<Home> {
                     price: flowersList[index].price,
                     description: flowersList[index].description,
                     specifications: flowersList[index].specifications,
+                    id: flowersList[index].id,
                     //video: flowersList[index].video,
                     fimage: fimageList[index].fimage,
                   ),
@@ -108,7 +110,7 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 5),
                 Text(
                   textAlign: TextAlign.center,
-                  '${flowersList[index].price} \Руб',
+                  '${flowersList[index].price} Руб',
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -126,14 +128,18 @@ class _HomeState extends State<Home> {
                       ),
                        onPressed: () => addCart(index),
                     ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.favorite,
-                        size: 20,
-                        color: likedIndexes.contains(index) ? Colors.red : Colors.black,
-                      ),
-                      onPressed: () => addLike(index),
+                   IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      size: 20,
+                      color: likedIndexes.contains(index) ? Colors.red : Colors.black,
                     ),
+                    onPressed: () {
+                      setState(() {
+                        addLike(index); 
+                      });
+                    },
+                  ),
                 ],
                 )
               ],
@@ -187,10 +193,16 @@ class _HomeState extends State<Home> {
             IconButton(
               icon: const Icon(
                 Icons.android,//Личный кабинет
-                color: Colors.black,
+                color: Colors.green,
                 size: 25,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Account()
+                        ),
+                      );
+                    },
             ),
           ],
         ),
