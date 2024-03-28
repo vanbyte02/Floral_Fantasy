@@ -192,7 +192,7 @@ class _HomeState extends State<Home> {
             ),
             IconButton(
               icon: const Icon(
-                Icons.android,//Личный кабинет
+                Icons.person,//Личный кабинет
                 color: Colors.green,
                 size: 25,
                 ),
