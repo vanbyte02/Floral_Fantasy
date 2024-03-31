@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'Purchase.dart';
 import 'modul/DataBase.dart';
 import 'Like.dart';
 import 'PersonalAccount.dart';
 
-// Convert CartPage to StatefulWidget
+//Экран Корзины
 class CartPage extends StatefulWidget {
   final List<Flowers> cartItems;
 
@@ -40,7 +41,7 @@ class _CartPageState extends State<CartPage> {
                   key: UniqueKey(),
                   onDismissed: (_) {
                     setState(() {
-                      CartLike.cart.removeAt(index);
+                      cart.removeAt(index);
                     });
                   },
                   direction: DismissDirection.endToStart,
@@ -52,7 +53,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                   child: ListTile(
                     leading: Image.network(
-                      widget.cartItems[index].image, 
+                      widget.cartItems[index].fimage[0], 
                       width: 50, 
                       height: 50
                       ),
@@ -77,13 +78,13 @@ class _CartPageState extends State<CartPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(20),
-            child: Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   'Общая стоимость:',
                   style: TextStyle(
-                    fontSize: 18, 
+                  fontSize: 17, 
                   fontWeight: FontWeight.bold
                   ),
                 ),
@@ -91,9 +92,35 @@ class _CartPageState extends State<CartPage> {
                   '${getTotalCost()} Руб',
                   style: const TextStyle(
                     fontSize: 18, 
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.w400
                     ),
                 ),
+                const SizedBox(height: 20),
+                Container(
+                    height: 50, //высота
+                    width: 400, //ширина
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 15, 184, 0), 
+                     ),
+                  child: const Text(
+                    'Оформить заказ',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                    fontSize: 15, 
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                   ),
+                   ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Purchase()
+               ),
+                );
+              },
+            ),
+            ),
               ],
             ),
           ),
@@ -122,7 +149,7 @@ class _CartPageState extends State<CartPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LikePage(likeItems: CartLike.like)
+                  MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
                ),
                 );
               },

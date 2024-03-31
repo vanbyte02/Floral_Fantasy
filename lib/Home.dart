@@ -25,10 +25,10 @@ class _HomeState extends State<Home> {
     setState(() {
       if (cartIndexes.contains(index)) {
         cartIndexes.remove(index);
-        CartLike.cart.remove(flowersList[index]);
+        cart.remove(flowersList[index]);
       } else {
         cartIndexes.add(index);
-        CartLike.cart.add(flowersList[index]);
+        cart.add(flowersList[index]);
       }
     });
   }
@@ -37,10 +37,10 @@ class _HomeState extends State<Home> {
     setState(() {
       if (likedIndexes.contains(index)) {
         likedIndexes.remove(index);
-        CartLike.like.remove(flowersList[index]);
+        like.remove(flowersList[index]);
       } else {
         likedIndexes.add(index);
-        CartLike.like.add(flowersList[index]);
+        like.add(flowersList[index]);
       }
     });
   }
@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
                     specifications: flowersList[index].specifications,
                     id: flowersList[index].id,
                     //video: flowersList[index].video,
-                    fimage: fimageList[index].fimage,
+                    fimage: flowersList[index].fimage,
                   ),
                 ),
               );
@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
                 Image.network(
-                  flowersList[index].image,
+                  flowersList[index].fimage[0],
                   height: 75,
                   width: 75,
                   ),
@@ -163,7 +163,7 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
                ),
                 );
               },
@@ -177,7 +177,7 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LikePage(likeItems: CartLike.like)
+                  MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
                ),
                 );
               },

@@ -4,6 +4,7 @@ import 'Flowers.dart';
 import 'Cart.dart';
 import 'PersonalAccount.dart';
 
+//Экран Избранного
 class LikePage extends StatelessWidget {
   final List<Flowers> likeItems;
 
@@ -22,7 +23,7 @@ class LikePage extends StatelessWidget {
           return Dismissible(
             key: UniqueKey(),
             onDismissed: (_) {
-              CartLike.like.removeAt(index);
+              like.removeAt(index);
             },
             direction: DismissDirection.endToStart, 
             background: Container(
@@ -36,7 +37,7 @@ class LikePage extends StatelessWidget {
             ),
             child: ListTile(
               leading: Image.network(
-                likeItems[index].image,
+                likeItems[index].fimage[0],
                 width: 50,
                 height: 50,
               ),
@@ -65,7 +66,7 @@ class LikePage extends StatelessWidget {
                         specifications: likeItems[index].specifications,
                         id: flowersList[index].id,
                         //video: likeItems[index].video,
-                        fimage: fimageList[index].fimage,
+                        fimage: flowersList[index].fimage,
                       )),
                 );
               },
@@ -88,7 +89,7 @@ class LikePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)),
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)),
                 );
               },
             ),

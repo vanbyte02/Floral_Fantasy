@@ -6,13 +6,14 @@
   import 'Like.dart';
   import 'Cart.dart';
   import 'PersonalAccount.dart';
+  import 'Purchase.dart';
 
 
 
 
   //Подробная информация о цветах
   class DescriptionFlovers extends StatefulWidget {
-    final String id;
+    final int id;
     final String name;
     final int price;
     final String description;
@@ -35,8 +36,13 @@
     _DescriptionFloversState createState() => _DescriptionFloversState();
   }
 
+
+
   class _DescriptionFloversState extends State<DescriptionFlovers> {
-    int activeIndex = 0; 
+    int activeIndex = 0;
+   
+ 
+    
   
   @override
     Widget build(BuildContext context) {
@@ -115,8 +121,6 @@
                           color: Colors.black
                           ),
                         ),
-                        Row(
-                          children: [
                       IconButton(
                         icon: const Icon(
                           Icons.favorite,
@@ -127,16 +131,20 @@
                       ),
                           ]
                         ),
-                        const SizedBox(height: 5),
-                        ],
-                    ),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Center(
+                    Center(
                     child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                ElevatedButton(
+                  Container(
+                    height: 70, //высота
+                    width: 185, //ширина
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 230, 230, 230), 
+                     ),
                   child: const Text(
                     'В корзину',
                     style: TextStyle(
@@ -144,10 +152,17 @@
                     color: Colors.black
                    ),
                    ),
-              onPressed: () {},
+                onPressed: () {},
             ),
+            ),   
             const SizedBox(width: 20),
-              ElevatedButton(
+            Container(
+              height: 70, //высота
+              width: 185, //ширина
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+                     ),
                   child: const Text(
                     'Купить сейчас',
                     style: TextStyle(
@@ -155,12 +170,19 @@
                     color: Colors.black
                    ),
                    ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Purchase()
+               ),
+                );
+              },
             ),
+            ), 
                 ],
               ),
-                  ), 
-                  const SizedBox(height: 20),
+                  ),
+              const SizedBox(height: 20),
               Center(
                 child: Container(
                   decoration:BoxDecoration(
@@ -291,7 +313,7 @@
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)
+                    MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
                 ),
                   );
                 },
@@ -305,7 +327,7 @@
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LikePage(likeItems: CartLike.like)
+                    MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
                 ),
                   );
                 },

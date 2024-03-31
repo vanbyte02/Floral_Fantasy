@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'Cart.dart';
 import 'Like.dart';
+import 'Authorization.dart';
 import 'modul/DataBase.dart';
 
 
-//Экран авторизации
+//Экран Личного кабинета
 class Account extends StatelessWidget {
   const Account ({super.key});
 
@@ -32,6 +33,23 @@ class Account extends StatelessWidget {
                    ),
               onPressed: () {},
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+                  child: const Text(
+                    'Выход',
+                    style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black
+                   ),
+                   ),
+              onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Authorization()
+                        ),
+                      );
+                    },
+            ),
           ]
         ),
       ),
@@ -50,7 +68,7 @@ class Account extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: CartLike.cart)
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
                ),
                 );
               },
@@ -64,7 +82,7 @@ class Account extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LikePage(likeItems: CartLike.like)
+                  MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
                ),
                 );
               },
