@@ -78,36 +78,24 @@ class _CartPageState extends State<CartPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(20),
-            child: Column(
+            child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Общая стоимость:',
-                  style: TextStyle(
-                  fontSize: 17, 
-                  fontWeight: FontWeight.bold
-                  ),
-                ),
-                Text(
-                  '${getTotalCost()} Руб',
-                  style: const TextStyle(
-                    fontSize: 18, 
-                    fontWeight: FontWeight.w400
-                    ),
-                ),
-                const SizedBox(height: 20),
                 Container(
                     height: 50, //высота
-                    width: 400, //ширина
+                    width: 300, //ширина
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 15, 184, 0), 
-                     ),
+                     style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 15, 184, 0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                   child: const Text(
-                    'Оформить заказ',
+                    'Перейти к оформлению',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                    fontSize: 15, 
+                    fontSize: 16, 
                     color: Colors.black,
                     fontWeight: FontWeight.bold
                    ),
@@ -121,6 +109,13 @@ class _CartPageState extends State<CartPage> {
               },
             ),
             ),
+                Text(
+                  '${getTotalCost()} руб.',
+                  style: const TextStyle(
+                    fontSize: 18, 
+                    fontWeight: FontWeight.w700
+                    ),
+                ),
               ],
             ),
           ),
