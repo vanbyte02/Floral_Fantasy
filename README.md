@@ -18,7 +18,7 @@
 ## Подробная информация о цветке
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a85a2ee9-eeb6-4f8c-8b9b-171a7c7eb800)
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5d360cc4-aab8-4abf-b54c-c1348ae84667)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5a0b17d5-7cf8-4694-9d14-5d9b4a802cd4)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a63f8193-9c2d-4268-ae42-a64a59e4e4df)
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/434e0f61-dae1-442d-bd05-83491ad370c4)
 
 
