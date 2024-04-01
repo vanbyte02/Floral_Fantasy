@@ -24,6 +24,10 @@
 
 
 ## Корзина
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5bb839e0-0341-4032-81b5-7a0d708c24cb)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/df48b75a-f438-4ed0-8b5a-9deddc100c11)
+
+
 
 ## Избранное
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a015b1b9-b62e-43dd-ae8c-f9bc65afc149)
