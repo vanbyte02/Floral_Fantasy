@@ -16,11 +16,11 @@
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/fa929ad7-4cb9-4c61-8f74-40a7cfd4d67c)
 
 ## Подробная информация о цветке
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/35afe9ed-91a6-49ae-8d02-c5bf371e9886)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a85a2ee9-eeb6-4f8c-8b9b-171a7c7eb800)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5d360cc4-aab8-4abf-b54c-c1348ae84667)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5a0b17d5-7cf8-4694-9d14-5d9b4a802cd4)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/434e0f61-dae1-442d-bd05-83491ad370c4)
 
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/2501a41f-3639-4d8c-b713-0d209bc2f97a)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/3608b530-1598-4224-97ba-55bed4e43746)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/0881a04c-26d4-4b72-968f-bfa81b3e11a2)
 
 
 ## Корзина
