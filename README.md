@@ -32,3 +32,5 @@
 ## Избранное
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a015b1b9-b62e-43dd-ae8c-f9bc65afc149)
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/e23d66b1-109b-4be7-a61b-53e98a17a8db)
+
+## Личный кабинет приложения
