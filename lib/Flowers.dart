@@ -142,9 +142,12 @@
                     height: 70, //высота
                     width: 185, //ширина
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 230, 230, 230), 
-                     ),
+                      style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                   child: const Text(
                     'В корзину',
                     style: TextStyle(
@@ -152,7 +155,13 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {},
+                onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
+               ),
+                );
+              },
             ),
             ),   
             const SizedBox(width: 20),
@@ -160,9 +169,12 @@
               height: 70, //высота
               width: 185, //ширина
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
+                style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
-                     ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                   child: const Text(
                     'Купить сейчас',
                     style: TextStyle(
@@ -182,7 +194,7 @@
                 ],
               ),
                   ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 22),
               Center(
                 child: Container(
                   decoration:BoxDecoration(

@@ -21,7 +21,51 @@ class Purchase extends StatelessWidget {
        body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 100),
+            Container(
+              decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25
+                    ),
+                    color: const Color.fromARGB(255, 230, 230, 230
+                    ),
+                  ),
+                padding: const EdgeInsets.only(
+                  left: 20,  
+                  right: 20
+                ),
+                height: 200, 
+                width: 400, 
+                child: const Text(
+                  'Адрес',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18, 
+                    color: Colors.black,
+                  ),
+                ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25
+                    ),
+                    color: const Color.fromARGB(255, 230, 230, 230
+                    ),
+                  ),
+                padding: const EdgeInsets.only(
+                  left: 20,  
+                  right: 20
+                ),
+                height: 100, 
+                width: 400, 
+                child: const Text(
+                  'Способы оплаты',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18, 
+                    color: Colors.black,
+                  ),
+                ),
+            ),
                 const SizedBox(height: 40),
                 Container(
               width: 370,
