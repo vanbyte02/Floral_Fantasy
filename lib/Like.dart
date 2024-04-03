@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'modul/DataBase.dart';
 import 'Flowers.dart';
 import 'Cart.dart';
+import 'Home.dart';
 import 'PersonalAccount.dart';
 
 //Экран Избранного
@@ -108,12 +109,16 @@ class LikePage extends StatelessWidget {
                 size: 25,
               ),
               onPressed: () {
-                Navigator.pop(context);
-              },
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()
+                          ),
+                        );
+                },
             ),
             IconButton(
               icon: const Icon(
-                Icons.android,//Личный кабинет
+                Icons.person,//Личный кабинет
                 color: Colors.green,
                 size: 25,
                 ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/HistoryPurchase.dart';
 import 'Cart.dart';
 import 'Like.dart';
 import 'Authorization.dart';
+import 'Home.dart';
 import 'modul/DataBase.dart';
 
 
@@ -23,32 +25,60 @@ class Account extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 100),
-               ElevatedButton(
-                  child: const Text(
-                    'История покупок',
-                    style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black
-                   ),
-                   ),
-              onPressed: () {},
+               Container(
+                    height: 50, //высота
+                    width: 300, //ширина
+                    child: ElevatedButton(
+                     style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 15, 184, 0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
+                child: const Text(
+                  'История покупок',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18, 
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HistoryPurchase()
+                        ),
+                      );
+                },
             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-                  child: const Text(
-                    'Выход',
-                    style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black
-                   ),
-                   ),
-              onPressed: () {
+               ),
+            const SizedBox(height: 100),
+            Container(
+                    height: 50, //высота
+                    width: 250, //ширина
+                    child: ElevatedButton(
+                     style: TextButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
+                child: const Text(
+                  'Выход',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18, 
+                    color: Colors.black,
+                  ),
+                ),
+                onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const Authorization()
                         ),
                       );
                     },
+            ),
             ),
           ]
         ),
@@ -93,9 +123,13 @@ class Account extends StatelessWidget {
                 color: Colors.black,
                 size: 25,
                 ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+             onPressed: () {
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()
+                          ),
+                        );
+                },
             ),
             IconButton(
               icon: const Icon(

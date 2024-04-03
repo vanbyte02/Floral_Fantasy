@@ -5,6 +5,7 @@
   import 'modul/DataBase.dart';
   import 'Like.dart';
   import 'Cart.dart';
+  import 'Home.dart';
   import 'PersonalAccount.dart';
   import 'Purchase.dart';
 
@@ -182,13 +183,14 @@
                     color: Colors.black
                    ),
                    ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Purchase()
-               ),
-                );
-              },
+          onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Purchase(),
+                ),
+              );
+            },
             ),
             ), 
                 ],
@@ -351,7 +353,11 @@
                   size: 25,
                   ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()
+                          ),
+                        );
                 },
               ),
               IconButton(

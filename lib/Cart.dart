@@ -83,7 +83,7 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Container(
                     height: 50, //высота
-                    width: 300, //ширина
+                    width: 250, //ширина
                     child: ElevatedButton(
                      style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 15, 184, 0),

@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
-import 'Home.dart';
 import 'modul/DataBase.dart';
+import 'Home.dart';
 import 'Like.dart';
 import 'Cart.dart';
 import 'PersonalAccount.dart';
 
-//Экран оформления заказа
-class Purchase extends StatelessWidget {
-  const Purchase ({super.key});
+// Экран оформления заказа
+class Purchase extends StatefulWidget {
+  const Purchase({super.key});
+
+  @override
+  _PurchaseState createState() => _PurchaseState();
+}
+
+
+class _PurchaseState extends State<Purchase> {
+
+  
+  final List<String> pay = [
+    'Оплата через СБП',
+    'Оплата наличными при получении',
+    'Оплата картой при получении',
+    'Оплата онлайн картой',
+  ];
+
+  String? _selectedPaymentMethod;
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,57 +36,53 @@ class Purchase extends StatelessWidget {
           child: Text('Оформление заказа'),
         ),
       ),
-       body: Center(
+      body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 50),
             Container(
+              margin: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25
-                    ),
-                    color: const Color.fromARGB(255, 230, 230, 230
-                    ),
-                  ),
-                padding: const EdgeInsets.only(
-                  left: 20,  
-                  right: 20
+                borderRadius: BorderRadius.circular(25),
+                color: const Color.fromARGB(255, 230, 230, 230),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: const TextField(
+                decoration:  InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Введите ваш адрес',
                 ),
-                height: 200, 
-                width: 400, 
-                child: const Text(
-                  'Адрес',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18, 
-                    color: Colors.black,
-                  ),
-                ),
+              ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
             Container(
+              margin: const EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25
-                    ),
-                    color: const Color.fromARGB(255, 230, 230, 230
-                    ),
-                  ),
-                padding: const EdgeInsets.only(
-                  left: 20,  
-                  right: 20
-                ),
-                height: 100, 
-                width: 400, 
-                child: const Text(
-                  'Способы оплаты',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 18, 
-                    color: Colors.black,
-                  ),
-                ),
+                borderRadius: BorderRadius.circular(25),
+                color: const Color.fromARGB(255, 230, 230, 230),
+              ),
+              child: DropdownButton<String>(
+                value: _selectedPaymentMethod,
+                hint: const Text('Выберите способ оплаты'),
+                isExpanded: true,
+                underline: Container(), 
+                items: pay.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedPaymentMethod = newValue;
+                  });
+                },
+              ),
             ),
-                const SizedBox(height: 40),
-                Container(
-              width: 370,
+            const SizedBox(height: 120),
+            Container(
+              width: 250,
               height: 70, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -83,13 +97,10 @@ class Purchase extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  purchase.clear();
-
                   purchase.addAll(cart);
-
                   cart.clear();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Заказ оформлен'),
                       duration: Duration(seconds: 2),
                     ),
@@ -97,8 +108,7 @@ class Purchase extends StatelessWidget {
                 }
               )
                 ),
-          
-          ]
+          ],
         ),
       ),
       bottomNavigationBar: BottomAppBar(
