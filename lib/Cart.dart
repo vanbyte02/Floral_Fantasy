@@ -161,7 +161,7 @@ class _CartPageState extends State<CartPage> {
             ),
             IconButton(
               icon: const Icon(
-                Icons.android,//Личный кабинет
+                Icons.person,//Личный кабинет
                 color: Colors.green,
                 size: 25,
                 ),

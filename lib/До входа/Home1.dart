@@ -1,49 +1,22 @@
 import 'package:flutter/material.dart';
-import 'PersonalAccount.dart';
-import 'Cart.dart';
-import 'Like.dart';
-import 'modul/DataBase.dart';
-import 'Flowers.dart';
+import 'package:flutter_application_2/Authorization.dart';
+import '../Cart.dart';
+import '../Like.dart';
+import '../modul/DataBase.dart';
+import '../Flowers.dart';
+
 
 
 
 //Главный экран магазина
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Home1 extends StatefulWidget {
+  const Home1({super.key});
 
   @override
-  _HomeState createState() => _HomeState();
+  _HomeState1 createState() => _HomeState1();
 }
 
-class _HomeState extends State<Home> {
-  Set<int> likedIndexes = Set();
-  Set<int> cartIndexes = Set();
-  
-
-  void addCart(int index) { 
-    setState(() {
-      if (cartIndexes.contains(index)) {
-        cartIndexes.remove(index);
-        cart.remove(flowersList[index]);
-      } else {
-        cartIndexes.add(index);
-        cart.add(flowersList[index]);
-      }
-    });
-  }
-
-  void addLike(int index) { 
-    setState(() {
-      if (likedIndexes.contains(index)) {
-        likedIndexes.remove(index);
-        like.remove(flowersList[index]);
-      } else {
-        likedIndexes.add(index);
-        like.add(flowersList[index]);
-      }
-    });
-  }
-
+class _HomeState1 extends State<Home1> {
   
   @override
   Widget build(BuildContext context) {
@@ -115,34 +88,8 @@ class _HomeState extends State<Home> {
                     fontSize: 14,
                   ),
                 ),
-
-                Row(
-                children: <Widget>[
-                  const SizedBox(width: 10),
-                    IconButton(
-                      icon: Icon(
-                        Icons.local_grocery_store,
-                        size: 20,
-                        color: cartIndexes.contains(index) ? Colors.green : Colors.black,
-                      ),
-                       onPressed: () => addCart(index),
-                    ),
-                   IconButton(
-                    icon: Icon(
-                      Icons.favorite,
-                      size: 20,
-                      color: likedIndexes.contains(index) ? Colors.red : Colors.black,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        addLike(index); 
-                      });
-                    },
-                  ),
                 ],
                 )
-              ],
-            ),
           );
         },
       ),
@@ -198,7 +145,7 @@ class _HomeState extends State<Home> {
               onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Account()
+                        MaterialPageRoute(builder: (context) => const Authorization()
                         ),
                       );
                     },

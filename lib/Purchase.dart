@@ -82,12 +82,15 @@ class _PurchaseState extends State<Purchase> {
             ),
             const SizedBox(height: 120),
             Container(
-              width: 250,
-              height: 70, 
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 15, 184, 0), 
-                ),
+                    height: 50, //высота
+                    width: 270, //ширина
+                    child: ElevatedButton(
+                     style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 15, 184, 0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                 child: const Text(
                   'Заказать',
                   textAlign: TextAlign.center,
@@ -162,7 +165,7 @@ class _PurchaseState extends State<Purchase> {
               ),
               IconButton(
                 icon: const Icon(
-                  Icons.android,//Личный кабинет
+                  Icons.person,//Личный кабинет
                   color: Colors.green,
                   size: 25,
                   ),

@@ -80,10 +80,10 @@ class Registration extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 45),
+                const SizedBox(height: 50),
               Container(
                    width: 300,
-                  height: 70,   
+                  height: 50,   
               child: ElevatedButton(
                onPressed: () {
                       Navigator.push(
@@ -92,6 +92,11 @@ class Registration extends StatelessWidget {
                         ),
                       );
                     },
+                    style: TextButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                 child: const Text('Зарегистрироваться',
                     style: TextStyle(
                         fontSize: 18, 
@@ -107,3 +112,6 @@ class Registration extends StatelessWidget {
     );
   }
 }
+
+
+

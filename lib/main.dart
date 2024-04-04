@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'Authorization.dart';
+import 'До входа/Home1.dart';
 import 'Home.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor:const  Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: const Home1(),
     );
   }
 }

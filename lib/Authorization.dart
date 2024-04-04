@@ -51,8 +51,13 @@ class Authorization extends StatelessWidget {
                 const SizedBox(height: 100),
                 Container(
                   width: 300,
-                  height: 70, 
+                  height: 50, 
                   child: ElevatedButton(
+                    style: TextButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -85,8 +90,13 @@ class Authorization extends StatelessWidget {
                 const SizedBox(height: 40),
                     Container(
                       width: 300,
-                      height: 70, 
+                      height: 50, 
               child: ElevatedButton(
+                style: TextButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                      ),
+                  ),
                   child: const Text(
                     'Войти',
                     style: TextStyle(

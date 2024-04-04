@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'HistoryPurchase.dart';
-import 'Cart.dart';
-import 'Like.dart';
-import 'Authorization.dart';
-import 'Home.dart';
-import 'modul/DataBase.dart';
+import '../../HistoryPurchase.dart';
+import '../../Cart.dart';
+import '../../Like.dart';
+import '../../Authorization.dart';
+import '../../Home.dart';
+import '../../modul/DataBase.dart';
 
 
 //Экран Личного кабинета
-class Account extends StatelessWidget {
-  const Account ({super.key});
+class Account1 extends StatelessWidget {
+  const Account1 ({super.key});
 
 
   @override
@@ -24,17 +24,6 @@ class Account extends StatelessWidget {
        body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 100),
-              Container(
-                    height: 50, //высота
-                    width: 300,
-                    color: Colors.black,
-                    //child: Image.network(
-                    //PersonalData.image,
-                    //width: 500, 
-                    //height: 400
-                    //), 
-                    ),
             const SizedBox(height: 100),
                Container(
                     height: 50, //высота
@@ -63,7 +52,7 @@ class Account extends StatelessWidget {
                 },
             ),
                ),
-            const SizedBox(height: 70),
+            const SizedBox(height: 100),
             Container(
                     height: 50, //высота
                     width: 250, //ширина
