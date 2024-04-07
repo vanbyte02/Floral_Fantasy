@@ -39,4 +39,5 @@
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/eb885168-8eac-4428-bc1b-c508f175d2ba)
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5fc817e4-2d4f-4eed-8085-3fc6ca39e2e2)
 
-
+## Экран истории покупок
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/91495194-2b31-4625-b173-6f4c40bd84b5)
