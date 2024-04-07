@@ -1,50 +1,44 @@
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'modul/DataBase.dart';
 import 'Home.dart';
 import 'Like.dart';
 import 'Cart.dart';
 import 'PersonalAccount.dart';
-import 'Orders.dart';
 
-class HistoryPurchase extends StatefulWidget {
-  const HistoryPurchase({Key? key}) : super(key: key);
 
-  @override
-  _HistoryPurchaseState createState() => _HistoryPurchaseState();
-}
 
-class _HistoryPurchaseState extends State<HistoryPurchase> {
+class OrderDetailsScreen extends StatelessWidget {
+  final int orderIndex; 
+
+  const OrderDetailsScreen({Key? key, required this.orderIndex}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+
+    final Orders order = orders[orderIndex];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('История покупок'),
+        title: const Text('Детали заказа'),
       ),
       body: ListView.builder(
-        itemCount: orders.length,
+        itemCount: order.flowers.length,
         itemBuilder: (context, index) {
-          final order = orders[index];
-          String formattedDate = DateFormat('dd.MM.yyyy').format(order.date); 
+          final flower = order.flowers[index];
           return ListTile(
-            title: Text('Заказ от $formattedDate',
-            style: const TextStyle(
-                fontSize: 18, 
-                color: Colors.black,
-                fontWeight: FontWeight.w600
-                ),
-                ),
-            onTap: () {
-        Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => OrderDetailsScreen(orderIndex: index)),
-  );
-        
-      },
-
+            leading: Image.network(flower.fimage[0]), 
+            title: Text(flower.name),
+            subtitle: Text('Количество: ${flower.quantity}, Цена: ${flower.price}, Стоимость: ${flower.quantity * flower.price} Руб'),
           );
         },
       ),
+    
+
+
+
+
+
+
       bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 6,
@@ -88,16 +82,15 @@ class _HistoryPurchaseState extends State<HistoryPurchase> {
                   ),
                 onPressed: () {
                   Navigator.push(
-                     context,
-                     MaterialPageRoute(builder: (context) => const Home(
-                      )
-                    ),
-                  );
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()
+                          ),
+                        );
                 },
               ),
               IconButton(
                 icon: const Icon(
-                  Icons.android,//Личный кабинет
+                  Icons.person,//Личный кабинет
                   color: Colors.green,
                   size: 25,
                   ),

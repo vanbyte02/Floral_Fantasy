@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Home.dart';
 import 'Purchase.dart';
 import 'modul/DataBase.dart';
 import 'Like.dart';
@@ -19,57 +20,78 @@ class _CartPageState extends State<CartPage> {
   int getTotalCost() {
     int totalCost = 0;
     for (var item in widget.cartItems) {
-      totalCost += item.price;
+      totalCost += item.price * item.quantity;
     }
     return totalCost;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Корзина'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: widget.cartItems.length,
-              itemBuilder: (context, index) {
-                return Dismissible(
-                  key: UniqueKey(),
-                  onDismissed: (_) {
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text('Корзина'),
+          ),
+          body: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+      itemCount: widget.cartItems.length,
+      itemBuilder: (context, index) {
+        final item = widget.cartItems[index];
+        return Dismissible(
+          key: UniqueKey(),
+          onDismissed: (_) {
+            setState(() {
+              widget.cartItems.removeAt(index);
+            });
+          },
+          direction: DismissDirection.endToStart,
+          background: Container(
+            color: Colors.red,
+            alignment: Alignment.centerRight,
+            padding: const EdgeInsets.only(right: 20),
+            child: const Icon(Icons.delete, color: Colors.white),
+          ),
+          child: ListTile(
+            leading: Image.network(
+              item.fimage[0], 
+              width: 50, 
+              height: 50
+            ),
+            title: Text(
+              item.name,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+            subtitle: Row(
+              children: <Widget>[
+                   Text('${item.quantity} x ${item.price} Руб',
+                style: const TextStyle(
+                    fontSize: 16, 
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400
+                    ),
+                   ),
+                   const SizedBox(width: 20,),
+                IconButton(
+                  icon: const Icon(Icons.remove),
+                  onPressed: () {
                     setState(() {
-                      cart.removeAt(index);
+                      if (item.quantity > 1) {
+                        item.quantity--;
+                      }
                     });
                   },
-                  direction: DismissDirection.endToStart,
-                  background: Container(
-                    color: Colors.red,
-                    alignment: Alignment.centerRight,
-                    padding: const EdgeInsets.only(right: 20),
-                    child: const Icon(Icons.delete, color: Colors.white),
-                  ),
-                  child: ListTile(
-                    leading: Image.network(
-                      widget.cartItems[index].fimage[0], 
-                      width: 50, 
-                      height: 50
-                      ),
-                    title: Text(
-                      style: const TextStyle(
-                        fontSize: 18, 
-                      fontWeight: FontWeight.w600
-                      ),
-                      widget.cartItems[index].name,
-                    ),
-                    subtitle: Text(
-                      style: const TextStyle(
-                        fontSize: 18, 
-                        fontWeight: FontWeight.w400
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () {
+                    setState(() {
+                      item.quantity++;
+                            });
+                          },
                         ),
-                      '${widget.cartItems[index].price} Руб',
+                      ],
                     ),
                   ),
                 );
@@ -81,7 +103,7 @@ class _CartPageState extends State<CartPage> {
             child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
+                SizedBox(
                     height: 50, //высота
                     width: 250, //ширина
                     child: ElevatedButton(
@@ -97,7 +119,7 @@ class _CartPageState extends State<CartPage> {
                     style: TextStyle(
                     fontSize: 16, 
                     color: Colors.black,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.w600
                    ),
                    ),
               onPressed: () {
@@ -156,7 +178,11 @@ class _CartPageState extends State<CartPage> {
                 size: 25,
                 ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Home()
+                        ),
+                      );
               },
             ),
             IconButton(

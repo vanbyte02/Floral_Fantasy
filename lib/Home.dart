@@ -5,45 +5,17 @@ import 'Like.dart';
 import 'modul/DataBase.dart';
 import 'Flowers.dart';
 
-
-
-//Главный экран магазина
+// Главный экран магазина
 class Home extends StatefulWidget {
-  const Home({super.key});
+ 
+  const Home({super.key,});
 
   @override
   _HomeState createState() => _HomeState();
 }
 
+
 class _HomeState extends State<Home> {
-  Set<int> likedIndexes = Set();
-  Set<int> cartIndexes = Set();
-  
-
-  void addCart(int index) { 
-    setState(() {
-      if (cartIndexes.contains(index)) {
-        cartIndexes.remove(index);
-        cart.remove(flowersList[index]);
-      } else {
-        cartIndexes.add(index);
-        cart.add(flowersList[index]);
-      }
-    });
-  }
-
-  void addLike(int index) { 
-    setState(() {
-      if (likedIndexes.contains(index)) {
-        likedIndexes.remove(index);
-        like.remove(flowersList[index]);
-      } else {
-        likedIndexes.add(index);
-        like.add(flowersList[index]);
-      }
-    });
-  }
-
   
   @override
   Widget build(BuildContext context) {
@@ -91,6 +63,7 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
+                
                 Image.network(
                   flowersList[index].fimage[0],
                   height: 75,
@@ -115,30 +88,41 @@ class _HomeState extends State<Home> {
                     fontSize: 14,
                   ),
                 ),
-
                 Row(
                 children: <Widget>[
                   const SizedBox(width: 10),
                     IconButton(
-                      icon: Icon(
-                        Icons.local_grocery_store,
-                        size: 20,
-                        color: cartIndexes.contains(index) ? Colors.green : Colors.black,
-                      ),
-                       onPressed: () => addCart(index),
-                    ),
-                   IconButton(
                     icon: Icon(
-                      Icons.favorite,
+                      Icons.local_grocery_store,
                       size: 20,
-                      color: likedIndexes.contains(index) ? Colors.red : Colors.black,
+                      color: cart.contains(flowersList[index]) ? Colors.green : Colors.black,
                     ),
                     onPressed: () {
                       setState(() {
-                        addLike(index); 
+                        if (!cart.contains(flowersList[index])) {
+                          cart.add(flowersList[index]);
+                        } else {
+                          cart.remove(flowersList[index]);
+                        }
                       });
-                    },
+                    },   
                   ),
+                  IconButton(
+                  icon: Icon(
+                    Icons.favorite,
+                    size: 20,
+                    color: like.contains(flowersList[index]) ? Colors.red : Colors.black,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      if (!like.contains(flowersList[index])) {
+                        like.add(flowersList[index]);
+                      } else {
+                        like.remove(flowersList[index]);
+                      }
+                    });
+                  },   
+                ),
                 ],
                 )
               ],

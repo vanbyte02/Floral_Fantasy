@@ -1,4 +1,5 @@
   import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
   import 'package:smooth_page_indicator/smooth_page_indicator.dart';
   import 'package:carousel_slider/carousel_slider.dart';
   //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -33,11 +34,12 @@
       required this.fimage,
     }) : super(key: key);
 
+
+
+
   @override
     _DescriptionFloversState createState() => _DescriptionFloversState();
   }
-
-
 
   class _DescriptionFloversState extends State<DescriptionFlovers> {
     int activeIndex = 0;
@@ -127,9 +129,9 @@
                           Icons.favorite,
                           size: 25,
                           color: Colors.red,
-                        ),
-                          onPressed: () {},
-                      ),
+                              ),
+                                onPressed: () {} 
+                            ),
                           ]
                         ),
                     ),
@@ -139,7 +141,7 @@
                     child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 70, //высота
                     width: 185, //ширина
                     child: ElevatedButton(
@@ -156,17 +158,11 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
-               ),
-                );
-              },
+                onPressed: () {}
             ),
             ),   
             const SizedBox(width: 20),
-            Container(
+            SizedBox(
               height: 70, //высота
               width: 185, //ширина
               child: ElevatedButton(
@@ -187,7 +183,7 @@
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Purchase(),
+                  builder: (context) => const Purchase(),
                 ),
               );
             },
@@ -362,7 +358,7 @@
               ),
               IconButton(
                 icon: const Icon(
-                  Icons.android,//Личный кабинет
+                  Icons.person,//Личный кабинет
                   color: Colors.green,
                   size: 25,
                   ),

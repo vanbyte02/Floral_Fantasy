@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'До входа/Home1.dart';
+//import 'package:flutter_application_2/%D0%94%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%B0/Home1.dart';
 import 'Home.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor:const  Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
       ),
-      home: const Home1(),
+      home: const Home(),
     );
   }
 }

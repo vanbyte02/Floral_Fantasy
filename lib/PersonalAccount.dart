@@ -21,24 +21,75 @@ class Account extends StatelessWidget {
           child: Text('Личный кабинет'),
         ),
       ),
-       body: Center(
+      body: Center(
         child: Column(
           children: [
-            const SizedBox(height: 100),
-              Container(
-                    height: 50, //высота
-                    width: 300,
-                    color: Colors.black,
-                    //child: Image.network(
-                    //PersonalData.image,
-                    //width: 500, 
-                    //height: 400
-                    //), 
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Container(
+                  width: 200,
+                  height: 250,
+                  padding: const EdgeInsets.all(16),
+                  child: Image.network(data[0].image, fit: BoxFit.cover),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Container(
+                      height: 40, 
+                      width: 220, 
+                      color: const Color.fromARGB(255, 230, 230, 230,
                     ),
-            const SizedBox(height: 100),
-               Container(
+                    alignment: Alignment.center,
+                       child: Text(data[0].name, 
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black
+                            )
+                          ),
+                      ),
+                      const SizedBox(height: 15),
+                    Container(
+                      height: 40,
+                      width: 220,
+                      color: const Color.fromARGB(255, 230, 230, 230,
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(data[0].phonenumber, 
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black
+                          )
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                    Container(
+                      height: 40,
+                    width: 220, 
+                    color: const Color.fromARGB(255, 230, 230, 230,
+                    ),
+                    alignment: Alignment.center,
+                     child:  Text(data[0].email, 
+                     style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black
+                          )
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 70),
+               SizedBox(
                     height: 50, //высота
-                    width: 300, //ширина
+                    width: 270, //ширина
                     child: ElevatedButton(
                      style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 15, 184, 0),
@@ -63,10 +114,10 @@ class Account extends StatelessWidget {
                 },
             ),
                ),
-            const SizedBox(height: 70),
-            Container(
+            const SizedBox(height: 100),
+            SizedBox(
                     height: 50, //высота
-                    width: 250, //ширина
+                    width: 200, //ширина
                     child: ElevatedButton(
                      style: TextButton.styleFrom(
                       backgroundColor: Colors.red,

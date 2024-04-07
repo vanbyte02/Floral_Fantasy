@@ -81,7 +81,7 @@ class _PurchaseState extends State<Purchase> {
               ),
             ),
             const SizedBox(height: 120),
-            Container(
+            SizedBox(
                     height: 50, //высота
                     width: 270, //ширина
                     child: ElevatedButton(
@@ -100,17 +100,16 @@ class _PurchaseState extends State<Purchase> {
                   ),
                 ),
                 onPressed: () {
-                  purchase.addAll(cart);
-                  cart.clear();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Заказ оформлен'),
-                      duration: Duration(seconds: 2),
-                    ),
-                  );    
+                DateTime now = DateTime.now();
+                Orders order = Orders(items: List.from(cart), date: now, flowers: flowersList); 
+                orders.add(order); 
+                cart.clear(); 
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Заказ успешно оформлен!'), duration: Duration(seconds: 2)),
+                );
                 }
               )
-                ),
+            ),
           ],
         ),
       ),
