@@ -33,3 +33,10 @@
 
 ## Личный кабинет приложения
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/24171261-ed28-4f56-b295-70e4733cfdcf)
+
+
+## Оформление заказа
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/eb885168-8eac-4428-bc1b-c508f175d2ba)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5fc817e4-2d4f-4eed-8085-3fc6ca39e2e2)
+
+
