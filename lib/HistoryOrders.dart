@@ -1,31 +1,47 @@
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'modul/DataBase.dart';
 import 'Home.dart';
 import 'Like.dart';
 import 'Cart.dart';
 import 'PersonalAccount.dart';
+import 'Orders.dart';
 
+class HistoryPurchase extends StatefulWidget {
+  const HistoryPurchase({Key? key}) : super(key: key);
 
-class OrderDetailsScreen extends StatelessWidget {
-  final List<Flowers> orderItems;
+  @override
+  _HistoryPurchaseState createState() => _HistoryPurchaseState();
+}
 
-  const OrderDetailsScreen({Key? key, required this.orderItems}) : super(key: key);
-
+class _HistoryPurchaseState extends State<HistoryPurchase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: const Text('История покупок'),
       ),
       body: ListView.builder(
-        itemCount: orderItems.length,
+        itemCount: orders.length,
         itemBuilder: (context, index) {
-          final flower = orderItems[index];
+          final order = orders[index];
+          String formattedDate = DateFormat('dd.MM.yyyy').format(order.date); 
           return ListTile(
-            leading: Image.network(flower.fimage[0], width: 50, height: 50, errorBuilder: (context, error, stackTrace) => const Icon(Icons.error)), 
-            title: Text(flower.name),
-            subtitle: Text('Кол-во: ${flower.quantity}, Цена: ${flower.price} Руб, Стоимость: ${flower.quantity * flower.price} Руб'),
+            title: Text('Заказ от $formattedDate',
+            style: const TextStyle(
+                fontSize: 18, 
+                color: Colors.black,
+                fontWeight: FontWeight.w600
+                ),
+                ),
+            onTap: () {
+        Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => OrderDetailsScreen(orderIndex: index)),
+  );
+
+      },
+
           );
         },
       ),
@@ -72,15 +88,16 @@ class OrderDetailsScreen extends StatelessWidget {
                   ),
                 onPressed: () {
                   Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Home()
-                          ),
-                        );
+                     context,
+                     MaterialPageRoute(builder: (context) => const Home(
+                      )
+                    ),
+                  );
                 },
               ),
               IconButton(
                 icon: const Icon(
-                  Icons.person,//Личный кабинет
+                  Icons.android,//Личный кабинет
                   color: Colors.green,
                   size: 25,
                   ),

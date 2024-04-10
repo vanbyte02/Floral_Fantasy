@@ -34,8 +34,6 @@
     }) : super(key: key);
 
 
-
-
   @override
     _DescriptionFloversState createState() => _DescriptionFloversState();
   }
@@ -43,9 +41,6 @@
   class _DescriptionFloversState extends State<DescriptionFlovers> {
     int activeIndex = 0;
    
- 
-    
-  
   @override
     Widget build(BuildContext context) {
       //YoutubePlayerController controller = YoutubePlayerController(
@@ -124,20 +119,13 @@
                           ),
                         ),
                      IconButton(
-                            icon: Icon(
-                              Icons.favorite,
-                              size: 25,
-                              color: like.contains(widget.id) ? Colors.red : Colors.black,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                if (!like.contains(widget.id)) {
-                                } else {
-                                  like.remove(widget.id);
-                                }
-                              });
-                            },
+                          icon: const Icon(
+                            Icons.favorite,
+                            size: 25,
+                            color: Colors.red,
                           ),
+                          onPressed: () {},
+                        )
                           ]
                         ),
                     ),
@@ -164,7 +152,7 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {}
+                onPressed: () {},
             ),
             ),   
             const SizedBox(width: 20),

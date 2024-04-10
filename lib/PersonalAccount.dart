@@ -17,9 +17,8 @@ class Account extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Center(
-          child: Text('Личный кабинет'),
-        ),
+        centerTitle: true,
+        title: const Text('Личный кабинет'),
       ),
       body: Center(
         child: Column(
@@ -108,8 +107,9 @@ class Account extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => OrderDetailsScreen(cartItems: cart),
-                        ),
+                        MaterialPageRoute(
+                        builder: (context) => OrderDetailsScreen(orderItems: orders),
+                      )
                       );
                 },
             ),

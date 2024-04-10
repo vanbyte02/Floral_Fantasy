@@ -26,15 +26,13 @@ class _PurchaseState extends State<Purchase> {
 
   String? _selectedPaymentMethod;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Center(
-          child: Text('Оформление заказа'),
-        ),
+          centerTitle: true,
+          title: const Text('Оформление заказа'),
       ),
       body: Center(
         child: Column(
@@ -100,11 +98,13 @@ class _PurchaseState extends State<Purchase> {
                   ),
                 ),
                  onPressed: () {
-                  DateTime.now();
-                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Заказ успешно оформлен!'), duration: Duration(seconds: 2)),
+                DateTime.now();
+                orders.addAll(cart); 
+                cart.clear(); 
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Заказ успешно оформлен!'), duration: Duration(seconds: 2)),
                 );
-                }
+              },
               )
             ),
           ],

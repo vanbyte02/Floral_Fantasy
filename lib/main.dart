@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Цветочный магазин "Floral Fantasy"',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor:const  Color.fromARGB(255, 255, 255, 255)),
-        useMaterial3: true,
       ),
       home: const Home(),
     );

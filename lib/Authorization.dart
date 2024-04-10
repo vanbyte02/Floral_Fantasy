@@ -13,9 +13,8 @@ class Authorization extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Center(
-          child: Text('Авторизация'),
-        ),
+        centerTitle: true,
+        title: const Text('Авторизация'),
       ),
        body: Center(
         child: Column(
