@@ -8,23 +8,20 @@ import 'PersonalAccount.dart';
 
 
 class OrderDetailsScreen extends StatelessWidget {
-  final int orderIndex; 
+  final List<Flowers> cartItems; 
 
-  const OrderDetailsScreen({Key? key, required this.orderIndex}) : super(key: key);
+  const OrderDetailsScreen({Key? key, required this.cartItems}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-    final Orders order = orders[orderIndex];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Детали заказа'),
       ),
       body: ListView.builder(
-        itemCount: order.flowers.length,
+        itemCount: cartItems.length,
         itemBuilder: (context, index) {
-          final flower = order.flowers[index];
+          final flower = cartItems[index]; 
           return ListTile(
             leading: Image.network(flower.fimage[0]), 
             title: Text(flower.name),
@@ -32,13 +29,6 @@ class OrderDetailsScreen extends StatelessWidget {
           );
         },
       ),
-    
-
-
-
-
-
-
       bottomNavigationBar: BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 6,

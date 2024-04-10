@@ -1,5 +1,4 @@
   import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
   import 'package:smooth_page_indicator/smooth_page_indicator.dart';
   import 'package:carousel_slider/carousel_slider.dart';
   //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -124,14 +123,21 @@ import 'package:flutter/widgets.dart';
                           color: Colors.black
                           ),
                         ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.favorite,
-                          size: 25,
-                          color: Colors.red,
-                              ),
-                                onPressed: () {} 
+                     IconButton(
+                            icon: Icon(
+                              Icons.favorite,
+                              size: 25,
+                              color: like.contains(widget.id) ? Colors.red : Colors.black,
                             ),
+                            onPressed: () {
+                              setState(() {
+                                if (!like.contains(widget.id)) {
+                                } else {
+                                  like.remove(widget.id);
+                                }
+                              });
+                            },
+                          ),
                           ]
                         ),
                     ),

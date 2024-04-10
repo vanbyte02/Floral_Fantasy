@@ -99,13 +99,10 @@ class _PurchaseState extends State<Purchase> {
                     color: Colors.black,
                   ),
                 ),
-                onPressed: () {
-                DateTime now = DateTime.now();
-                Orders order = Orders(items: List.from(cart), date: now, flowers: flowersList); 
-                orders.add(order); 
-                cart.clear(); 
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Заказ успешно оформлен!'), duration: Duration(seconds: 2)),
+                 onPressed: () {
+                  DateTime.now();
+                   ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Заказ успешно оформлен!'), duration: Duration(seconds: 2)),
                 );
                 }
               )

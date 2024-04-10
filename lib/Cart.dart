@@ -65,14 +65,14 @@ class _CartPageState extends State<CartPage> {
             ),
             subtitle: Row(
               children: <Widget>[
-                   Text('${item.quantity} x ${item.price} Руб',
+                   Text('${item.price * item.quantity} Руб',
                 style: const TextStyle(
                     fontSize: 16, 
                     color: Colors.black,
                     fontWeight: FontWeight.w400
                     ),
                    ),
-                   const SizedBox(width: 20,),
+                   const SizedBox(width: 20),
                 IconButton(
                   icon: const Icon(Icons.remove),
                   onPressed: () {
@@ -83,6 +83,13 @@ class _CartPageState extends State<CartPage> {
                     });
                   },
                 ),
+                Text('${item.quantity}',
+                style: const TextStyle(
+                    fontSize: 16, 
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400
+                    ),
+                   ),
                 IconButton(
                   icon: const Icon(Icons.add),
                   onPressed: () {

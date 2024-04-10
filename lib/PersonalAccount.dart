@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'HistoryPurchase.dart';
+import 'Orders.dart';
 import 'Cart.dart';
 import 'Like.dart';
 import 'Authorization.dart';
@@ -108,7 +108,7 @@ class Account extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const HistoryPurchase()
+                        MaterialPageRoute(builder: (context) => OrderDetailsScreen(cartItems: cart),
                         ),
                       );
                 },
