@@ -21,10 +21,9 @@
 
 
 ## Корзина
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/1385242f-dce5-41ca-b870-b8e73306c6a2)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/6cda2f6f-586d-4417-9411-815c1abe2eee)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/028ea8c6-ff62-4f3c-b632-e57fb76cb7f8)
-
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/8ef897ed-d28e-4103-8eea-1ae36fd93d73)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/4be0eabd-e557-48fd-8381-9c6f43bf0dad)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/b4b70aab-6ac7-418e-8119-2832897bc9d1)
 
 ## Избранное
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a1610474-b979-4a41-8751-802e8e2a8870)
