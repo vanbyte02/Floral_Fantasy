@@ -1,4 +1,6 @@
 # Лабораторная работа - Цветочный магазин (GridView)
+## Главный экран до входа в приложение 
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/25bf729c-9411-48c7-8c0f-e237a1e71326)
 
 ## Экран авторизации 
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a948be71-87b3-4c6e-94d1-5a48f067c6ac)
@@ -39,4 +41,5 @@
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/5fc817e4-2d4f-4eed-8085-3fc6ca39e2e2)
 
 ## Экран истории покупок
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/91495194-2b31-4625-b173-6f4c40bd84b5)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/d0c644f8-ed86-4b38-8249-a84526eee5c8)
+
