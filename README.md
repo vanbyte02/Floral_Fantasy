@@ -11,9 +11,9 @@
 
 
 ## Главный экран приложения
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/efc19d80-60b2-4abe-a3e9-44dbc41303be)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/b3edff4f-68e1-4448-adaa-bd4a1c67ad31)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/6666e9eb-ddf6-4f05-a786-39661e93cd78)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/c4b56abe-7711-4469-a958-113dcbaf0257)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/3b23b3b9-ee6a-4907-850d-36675679c697)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/68c315b0-fe0f-4a5b-a64c-4f2d9ca7d9c0)
 
 ## Подробная информация о цветке
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/bb218d72-c96d-4001-833d-a0976b86fa6c)
