@@ -24,6 +24,15 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Floral Fantasy'),
+        actions: [
+          IconButton(
+              onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => const SearchPage())),
+              icon: const Icon(Icons.search
+            )
+          ),
+          const SizedBox(width: 30)
+        ],
       ),
       body: GridView.builder(
         padding: const EdgeInsets.all(8),
@@ -191,5 +200,41 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+}
+
+
+//Поиск в приложении
+class SearchPage extends StatelessWidget {
+  const SearchPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title: Container(
+        width: double.infinity,
+        height: 40,
+        decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 230, 230, 230),
+            borderRadius: BorderRadius.circular(5)
+            ),
+        child: Center(
+          child: TextField(
+            textAlign: TextAlign.center,
+            decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: IconButton(
+                  icon: const Icon(Icons.clear),
+                  onPressed: () {
+                  },
+                ),
+                hintText: 'Поиск...',
+                border: InputBorder.none),
+          ),
+        ),  
+      )),
+    );  
   }
 }

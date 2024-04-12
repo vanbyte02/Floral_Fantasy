@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_application_2/%D0%94%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%B0/Home1.dart';
-import 'Home.dart';
+import 'package:flutter_application_2/Home.dart';
 
 void main() {
   runApp(const MyApp());

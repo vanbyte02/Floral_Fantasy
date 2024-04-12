@@ -81,8 +81,8 @@ class Registration extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 50),
-              Container(
-                   width: 300,
+              SizedBox(
+                  width: 300,
                   height: 50,   
               child: ElevatedButton(
                onPressed: () {

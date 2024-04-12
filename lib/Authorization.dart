@@ -48,7 +48,7 @@ class Authorization extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 100),
-                Container(
+                SizedBox(
                   width: 300,
                   height: 50, 
                   child: ElevatedButton(
@@ -87,7 +87,7 @@ class Authorization extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                    Container(
+                    SizedBox(
                       width: 300,
                       height: 50, 
               child: ElevatedButton(

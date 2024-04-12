@@ -64,7 +64,6 @@
                 options: CarouselOptions(
                   height: 300,
                   autoPlay: true,
-                  
                   onPageChanged: (index, reason) {
                     setState(() {
                       activeIndex = index;
@@ -108,8 +107,7 @@
                           color: Colors.black
                           ),
                         ),
-                        const SizedBox(height: 15
-                        ), 
+                        const SizedBox(height: 10), 
                         Text(
                           '${widget.price} Руб',
                           style: const TextStyle(
@@ -118,20 +116,29 @@
                           color: Colors.black
                           ),
                         ),
+                        const SizedBox(height: 10), 
                      IconButton(
                           icon: const Icon(
                             Icons.favorite,
                             size: 25,
                             color: Colors.red,
                           ),
-                          onPressed: () {},
-                        )
-                          ]
-                        ),
+                          onPressed: () {
+                              setState(() {
+                                if (!like.contains(widget.id)) {
+                                  like.add(flowersList[0]);
+                                } else {
+                                  like.remove(widget.id);
+                                }
+                              });
+                            },
+                          )
+                        ]
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
-                    Center(
+                  Center(
                     child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -144,7 +151,7 @@
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                       ),
-                  ),
+                    ),
                   child: const Text(
                     'В корзину',
                     style: TextStyle(
@@ -152,7 +159,9 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {},
+                onPressed: () {
+                  
+                },
             ),
             ),   
             const SizedBox(width: 20),
