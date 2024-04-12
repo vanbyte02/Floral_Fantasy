@@ -24,10 +24,14 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Floral Fantasy'),
+        flexibleSpace: const Image(
+          image: NetworkImage('https://www.pngmart.com/files/16/Vector-Lotus-Flower-PNG-Photos.png'),
+          fit: BoxFit.cover,
+        ),
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const SearchPage())),
+                .push(MaterialPageRoute(builder: (_) => const Search())),
               icon: const Icon(Icons.search
             )
           ),
@@ -205,8 +209,8 @@ class _HomeState extends State<Home> {
 
 
 //Поиск в приложении
-class SearchPage extends StatelessWidget {
-  const SearchPage({Key? key}) : super(key: key);
+class Search extends StatelessWidget {
+  const Search({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -224,14 +228,19 @@ class SearchPage extends StatelessWidget {
             textAlign: TextAlign.center,
             decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: const Icon(
+                  Icons.search
+                ),
                 suffixIcon: IconButton(
-                  icon: const Icon(Icons.clear),
+                  icon: const Icon(
+                    Icons.clear
+                    ),
                   onPressed: () {
                   },
                 ),
                 hintText: 'Поиск...',
-                border: InputBorder.none),
+                border: InputBorder.none
+                ),
           ),
         ),  
       )),

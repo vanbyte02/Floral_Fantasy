@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_application_2/%D0%94%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%B0/Home1.dart';
+import 'package:flutter_application_2/Before_login/Home1.dart';
 import 'package:flutter_application_2/Home.dart';
 
 void main() {
@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Цветочный магазин "Floral Fantasy"',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor:const  Color.fromARGB(255, 255, 255, 255)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: const Home(),
+      home: const Home1(),
     );
   }
 }

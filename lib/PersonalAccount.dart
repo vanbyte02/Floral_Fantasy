@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'Orders.dart';
 import 'Cart.dart';
 import 'Like.dart';
-import 'Authorization.dart';
+import 'login/Authorization.dart';
 import 'Home.dart';
 import 'modul/DataBase.dart';
 
@@ -72,7 +72,8 @@ class Account extends StatelessWidget {
                     color: const Color.fromARGB(255, 230, 230, 230,
                     ),
                     alignment: Alignment.center,
-                     child:  Text(data[0].email, 
+                     child:  Text(
+                      data[0].email, 
                      style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -110,11 +111,11 @@ class Account extends StatelessWidget {
                         MaterialPageRoute(
                         builder: (context) => OrderDetailsScreen(orderItems: orders),
                       )
-                      );
-                },
-            ),
+                    );
+                  },
+                ),
                ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 70),
             SizedBox(
                     height: 50, //высота
                     width: 200, //ширина

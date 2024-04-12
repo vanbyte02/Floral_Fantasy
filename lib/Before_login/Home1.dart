@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Authorization.dart';
-import '../Cart.dart';
-import '../Like.dart';
+import 'package:flutter_application_2/login/Authorization.dart';
 import '../modul/DataBase.dart';
-import '../Flowers.dart';
+import 'Flowers1.dart';
 
 
 
@@ -49,7 +47,7 @@ class _HomeState1 extends State<Home1> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DescriptionFlovers(
+                  builder: (context) => DescriptionFlovers1(
                     name: flowersList[index].name,
                     price: flowersList[index].price,
                     description: flowersList[index].description,
@@ -106,13 +104,7 @@ class _HomeState1 extends State<Home1> {
                 color: Colors.black,
                 size: 25,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
-               ),
-                );
-              },
+              onPressed: () => _dialogBuilder(context),
             ),
             IconButton(
               icon: const Icon(
@@ -120,17 +112,11 @@ class _HomeState1 extends State<Home1> {
                 color: Colors.red,
                 size: 25,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
-               ),
-                );
-              },
+              onPressed: () => _dialogBuilder(context),
             ),
             IconButton(
               icon: const Icon(
-                Icons.home,
+                Icons.home,//Гл.Экран
                 color: Colors.black,
                 size: 25,
                 ),
@@ -155,4 +141,30 @@ class _HomeState1 extends State<Home1> {
       ),
     );
   }
+}
+
+
+Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Ошибка'),
+          content: const Text(
+            'Чтобы просматривать этот раздел, вам необходимо войти.'
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Закрыть'),
+              onPressed: () {
+                  Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }

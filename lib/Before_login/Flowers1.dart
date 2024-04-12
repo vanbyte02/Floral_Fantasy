@@ -1,19 +1,13 @@
-  import 'package:flutter/material.dart';
-  import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-  import 'package:carousel_slider/carousel_slider.dart';
-  //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-  import 'modul/DataBase.dart';
-  import 'Like.dart';
-  import 'Cart.dart';
-  import 'Home.dart';
-  import 'PersonalAccount.dart';
-  import 'Purchase.dart';
-
-
+import 'package:flutter/material.dart';
+import 'package:flutter_application_2/login/Authorization.dart';
+import 'package:flutter_application_2/Before_login/Home1.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
   //Подробная информация о цветах
-  class DescriptionFlovers extends StatefulWidget {
+  class DescriptionFlovers1 extends StatefulWidget {
     final int id;
     final String name;
     final int price;
@@ -22,7 +16,7 @@
     //final String video;
     final List<String> fimage;
 
-    const DescriptionFlovers({
+    const DescriptionFlovers1({
       Key? key,
       required this.id,
       required this.name,
@@ -35,10 +29,10 @@
 
 
   @override
-    _DescriptionFloversState createState() => _DescriptionFloversState();
+    _DescriptionFloversState1 createState() => _DescriptionFloversState1();
   }
 
-  class _DescriptionFloversState extends State<DescriptionFlovers> {
+  class _DescriptionFloversState1 extends State<DescriptionFlovers1> {
     int activeIndex = 0;
    
   @override
@@ -151,9 +145,7 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {
-                  
-                },
+                onPressed: () => _dialogBuilder(context),
             ),
             ),   
             const SizedBox(width: 20),
@@ -164,8 +156,8 @@
                 style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                   child: const Text(
                     'Купить сейчас',
@@ -174,14 +166,7 @@
                     color: Colors.black
                    ),
                    ),
-          onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Purchase(),
-                ),
-              );
-            },
+            onPressed: () => _dialogBuilder(context),
             ),
             ), 
                 ],
@@ -315,13 +300,7 @@
                   color: Colors.black,
                   size: 25,
                   ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CartPage(cartItems: cart)
-                ),
-                  );
-                },
+                onPressed: () => _dialogBuilder(context),
               ),
               IconButton(
                 icon: const Icon(
@@ -329,13 +308,7 @@
                   color: Colors.red,
                   size: 25,
                   ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LikePage(likeItems: like)
-                ),
-                  );
-                },
+                onPressed: () => _dialogBuilder(context),
               ),
               IconButton(
                 icon: const Icon(
@@ -345,10 +318,10 @@
                   ),
                 onPressed: () {
                   Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Home()
-                          ),
-                        );
+                      context,
+                      MaterialPageRoute(builder: (context) => const Home1()
+                    ),
+                  );
                 },
               ),
               IconButton(
@@ -358,12 +331,12 @@
                   size: 25,
                   ),
                 onPressed: () {
-                        Navigator.push(
+                  Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Account()
+                          MaterialPageRoute(builder: (context) => const Authorization()
                           ),
                         );
-                      },
+                },
               ),
             ],
           ),
@@ -371,3 +344,29 @@
           );
         }
       }
+
+
+Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Ошибка'),
+          content: const Text(
+            'Чтобы просматривать этот раздел, вам необходимо войти.'
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Закрыть'),
+              onPressed: () {
+                  Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
