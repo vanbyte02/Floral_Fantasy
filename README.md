@@ -3,11 +3,16 @@
 ![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/25bf729c-9411-48c7-8c0f-e237a1e71326)
 
 ## Экран авторизации 
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/a948be71-87b3-4c6e-94d1-5a48f067c6ac)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/f9121045-5bc9-4f51-82b8-6feffa30716b)
 
 
 ## Экран регистрации
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/8b5497a2-811a-4f7b-8536-5d1019e1fb73)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/6bf008bf-a24b-4b52-b9b9-92e4c5b0aee9)
+
+## Экран восстановления пароля
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/8f561551-94f5-4be6-bf32-80cd5872a931)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/fea18223-5f37-4ec2-a1bd-5cb55dc58bb3)
+
 
 
 ## Главный экран приложения
