@@ -25,7 +25,7 @@
 
 
 ## Строка поиска
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/982b111d-c13b-4ac1-a49c-33dee03c88bd)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/2f91fc20-4a38-4c44-a7f1-b2cbfa3b7e14)
 
 
 ## Подробная информация о цветке
@@ -48,7 +48,7 @@
 
 
 ## Личный кабинет приложения
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/24171261-ed28-4f56-b295-70e4733cfdcf)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/b847408d-b842-46c0-b48d-ab624384142a)
 
 
 ## Оформление заказа
