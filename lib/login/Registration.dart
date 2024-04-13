@@ -46,7 +46,7 @@ class Registration extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
           width: 350,
-          height: 450,
+          height: 470,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
           color: const Color.fromARGB(255, 233, 233, 233),

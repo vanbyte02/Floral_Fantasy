@@ -48,13 +48,7 @@ class _HomeState1 extends State<Home1> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => DescriptionFlovers1(
-                    name: flowersList[index].name,
-                    price: flowersList[index].price,
-                    description: flowersList[index].description,
-                    specifications: flowersList[index].specifications,
                     id: flowersList[index].id,
-                    //video: flowersList[index].video,
-                    fimage: flowersList[index].fimage,
                   ),
                 ),
               );

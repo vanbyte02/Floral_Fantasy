@@ -11,26 +11,13 @@
 
 
 
-
   //Подробная информация о цветах
   class DescriptionFlovers extends StatefulWidget {
     final int id;
-    final String name;
-    final int price;
-    final String description;
-    final String specifications;
-    //final String video;
-    final List<String> fimage;
 
     const DescriptionFlovers({
       Key? key,
       required this.id,
-      required this.name,
-      required this.price,
-      required this.description,
-      required this.specifications,
-      //required this.video,
-      required this.fimage,
     }) : super(key: key);
 
 
@@ -39,12 +26,12 @@
   }
 
   class _DescriptionFloversState extends State<DescriptionFlovers> {
-    int activeIndex = 0;
+    int activeIndex = 1;
    
   @override
     Widget build(BuildContext context) {
       //YoutubePlayerController controller = YoutubePlayerController(
-          //initialVideoId: widget.video,
+          //initialVideoId: flowersList[widget.id].video,
           //flags: const YoutubePlayerFlags(
             //autoPlay: false,
           //));
@@ -52,7 +39,7 @@
         backgroundColor: const Color.fromARGB(255, 240, 240, 240
         ),
         appBar: AppBar(
-          title: Text(widget.name), 
+          title: Text(flowersList[widget.id].name), 
           centerTitle: true,
         ),
         body: SingleChildScrollView( 
@@ -70,18 +57,18 @@
                     });
                   },
                 ),
-              itemCount: widget.fimage.length,
+                itemCount: flowersList[widget.id].fimage.length,
                 itemBuilder: (context, index, realIndex) {
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 2),
-                    child: Image.network(widget.fimage[index]),
+                    child: Image.network(flowersList[widget.id].fimage[index]),
                   );
                 },
               ),
               const SizedBox(height: 30),
               AnimatedSmoothIndicator(
                 activeIndex: activeIndex,
-                count: widget.fimage.length,
+                count: flowersList[widget.id].fimage.length,
               ),
                 const SizedBox(height: 30),
                 Center(
@@ -100,7 +87,7 @@
                         mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          widget.name, 
+                          flowersList[widget.id].name, 
                           style: const TextStyle(
                           fontSize: 20, 
                           fontWeight: FontWeight.w600,
@@ -109,7 +96,7 @@
                         ),
                         const SizedBox(height: 10), 
                         Text(
-                          '${widget.price} Руб',
+                          '${flowersList[widget.id].price} Руб',
                           style: const TextStyle(
                           fontSize: 19, 
                           fontWeight: FontWeight.w400,
@@ -120,7 +107,7 @@
                      IconButton(
                         icon: const Icon(
                           Icons.favorite,
-                          size: 20,
+                          size: 30,
                           color:Colors.red,
                         ),
                         onPressed: () {},   
@@ -136,7 +123,7 @@
                 children: [
                   SizedBox(
                     height: 70, //высота
-                    width: 185, //ширина
+                    width: 170, //ширина
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
@@ -151,13 +138,13 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {},
+                  onPressed: () {}
               ),
             ),   
-            const SizedBox(width: 20),
+            const SizedBox(width: 24),
             SizedBox(
               height: 70, //высота
-              width: 185, //ширина
+              width: 170, //ширина
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
@@ -206,16 +193,16 @@
                     const SizedBox(height: 17), 
                         const Text(
                           "Описание:", 
-                          style:  TextStyle(fontSize: 23, 
+                          style:  TextStyle(
+                          fontSize: 23, 
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.w500,
                           color:Colors.black,
                           ),
                         ),
-                        const SizedBox(height: 20
-                        ),
+                        const SizedBox(height: 20),
                         Text(
-                          widget.description, //Описание Товара
+                          flowersList[widget.id].description, //Описание Товара
                           style: const TextStyle(fontSize: 20, 
                           color: Colors.black
                           ),
@@ -225,8 +212,7 @@
                     ),
                   ),
                   ),
-              const SizedBox(height: 25
-              ), 
+              const SizedBox(height: 25), 
               Center(
                 child: Container(
                   decoration: BoxDecoration(
@@ -239,7 +225,7 @@
                   left: 20,  
                   right: 20
                 ),
-                height: 800, //высота
+                height: 900, //высота
                 width: 400, //ширина
                   child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -255,7 +241,7 @@
                         const SizedBox(height: 20
                         ),
                         Text(
-                          widget.specifications, //Характеристики товара
+                          flowersList[widget.id].specifications, //Характеристики товара
                           style: const TextStyle(fontSize: 20, 
                           color: Colors.black
                           ),
@@ -264,8 +250,7 @@
                     ),
                     ),
                   ),
-                const SizedBox(height: 25
-                ),
+                const SizedBox(height: 25),
                   Center(
                 child: Container(
                   decoration: BoxDecoration(
@@ -278,25 +263,14 @@
                   left: 20,  
                   right: 20
                 ),
-                height: 500, //высота
+                height: 300, //высота
                 width: 400, //ширина
-                  child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Скоро тут будет красиво... ',
-                        style: TextStyle(fontSize: 20, ),
-                        ),
-                        Text('(Тут должно было быть видео, но....)',
-                        style: TextStyle(fontSize: 20, )),
-                        //YoutubePlayer(
-                            //controller: controller,
-                          //),
-                        ],
-                    ),
+               //child: YoutubePlayer(
+                        //controller: controller,
+                      //), 
                     ),
                   ),
-                  const SizedBox(height: 25
-                ),
+                const SizedBox(height: 25),
                 ],
               ),
             ),

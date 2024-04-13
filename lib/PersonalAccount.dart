@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Before_login/Home1.dart';
 import 'Orders.dart';
 import 'Cart.dart';
 import 'Like.dart';
-import 'login/Authorization.dart';
 import 'Home.dart';
 import 'modul/DataBase.dart';
 
@@ -27,10 +27,11 @@ class Account extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  width: 200,
-                  height: 250,
+                  width: 170,
+                  height: 240,
                   padding: const EdgeInsets.all(16),
-                  child: Image.network(data[0].image, fit: BoxFit.cover),
+                  child: Image.network(data[0].image, 
+                  fit: BoxFit.cover),
                 ),
                 Expanded(
                   child: Column(
@@ -44,7 +45,7 @@ class Account extends StatelessWidget {
                     alignment: Alignment.center,
                        child: Text(data[0].name, 
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: Colors.black
                             )
@@ -57,9 +58,10 @@ class Account extends StatelessWidget {
                       color: const Color.fromARGB(255, 230, 230, 230,
                       ),
                       alignment: Alignment.center,
-                      child: Text(data[0].phonenumber, 
+                      child: Text(
+                      data[0].phonenumber, 
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: Colors.black
                           )
@@ -75,7 +77,7 @@ class Account extends StatelessWidget {
                      child:  Text(
                       data[0].email, 
                      style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 15,
                       fontWeight: FontWeight.w600,
                       color: Colors.black
                           )
@@ -89,7 +91,7 @@ class Account extends StatelessWidget {
             const SizedBox(height: 70),
                SizedBox(
                     height: 50, //высота
-                    width: 270, //ширина
+                    width: 230, //ширина
                     child: ElevatedButton(
                      style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 15, 184, 0),
@@ -101,7 +103,7 @@ class Account extends StatelessWidget {
                   'История покупок',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18, 
+                    fontSize: 16, 
                     color: Colors.black,
                   ),
                 ),
@@ -118,7 +120,7 @@ class Account extends StatelessWidget {
             const SizedBox(height: 70),
             SizedBox(
                     height: 50, //высота
-                    width: 200, //ширина
+                    width: 170, //ширина
                     child: ElevatedButton(
                      style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
@@ -130,14 +132,14 @@ class Account extends StatelessWidget {
                   'Выход',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18, 
+                    fontSize: 17, 
                     color: Colors.black,
                   ),
                 ),
                 onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Authorization()
+                        MaterialPageRoute(builder: (context) => const Home1()
                         ),
                       );
                     },

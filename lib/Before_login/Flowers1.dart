@@ -4,27 +4,17 @@ import 'package:flutter_application_2/Before_login/Home1.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 //import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_application_2/modul/DataBase.dart';
 
 
   //Подробная информация о цветах
   class DescriptionFlovers1 extends StatefulWidget {
     final int id;
-    final String name;
-    final int price;
-    final String description;
-    final String specifications;
-    //final String video;
-    final List<String> fimage;
+
 
     const DescriptionFlovers1({
       Key? key,
       required this.id,
-      required this.name,
-      required this.price,
-      required this.description,
-      required this.specifications,
-      //required this.video,
-      required this.fimage,
     }) : super(key: key);
 
 
@@ -46,7 +36,7 @@ import 'package:carousel_slider/carousel_slider.dart';
         backgroundColor: const Color.fromARGB(255, 240, 240, 240
         ),
         appBar: AppBar(
-          title: Text(widget.name), 
+          title: Text(flowersList[widget.id].name), 
           centerTitle: true,
         ),
         body: SingleChildScrollView( 
@@ -64,18 +54,18 @@ import 'package:carousel_slider/carousel_slider.dart';
                     });
                   },
                 ),
-              itemCount: widget.fimage.length,
+              itemCount: flowersList[widget.id].fimage.length,
                 itemBuilder: (context, index, realIndex) {
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 2),
-                    child: Image.network(widget.fimage[index]),
+                    child: Image.network(flowersList[widget.id].fimage[index]),
                   );
                 },
               ),
               const SizedBox(height: 30),
               AnimatedSmoothIndicator(
                 activeIndex: activeIndex,
-                count: widget.fimage.length,
+                count: flowersList[widget.id].fimage.length,
               ),
                 const SizedBox(height: 30),
                 Center(
@@ -94,7 +84,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                         mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          widget.name, 
+                          flowersList[widget.id].name, 
                           style: const TextStyle(
                           fontSize: 20, 
                           fontWeight: FontWeight.w600,
@@ -103,7 +93,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                         ),
                         const SizedBox(height: 10), 
                         Text(
-                          '${widget.price} Руб',
+                          '${flowersList[widget.id].price} Руб',
                           style: const TextStyle(
                           fontSize: 19, 
                           fontWeight: FontWeight.w400,
@@ -115,7 +105,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                           icon: const Icon(
                             Icons.favorite,
                             size: 25,
-                            color: Colors.red,
+                            color: Colors.black
                           ),
                           onPressed: () {},
                           )
@@ -130,7 +120,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                 children: [
                   SizedBox(
                     height: 70, //высота
-                    width: 185, //ширина
+                    width: 170, //ширина
                     child: ElevatedButton(
                       style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
@@ -145,13 +135,13 @@ import 'package:carousel_slider/carousel_slider.dart';
                     color: Colors.black
                    ),
                    ),
-                onPressed: () => _dialogBuilder(context),
+                onPressed: () => _dialogBuilder1(context),
             ),
             ),   
             const SizedBox(width: 20),
             SizedBox(
               height: 70, //высота
-              width: 185, //ширина
+              width: 170, //ширина
               child: ElevatedButton(
                 style: TextButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
@@ -166,7 +156,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                     color: Colors.black
                    ),
                    ),
-            onPressed: () => _dialogBuilder(context),
+            onPressed: () => _dialogBuilder1(context),
             ),
             ), 
                 ],
@@ -202,7 +192,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                         const SizedBox(height: 20
                         ),
                         Text(
-                          widget.description, //Описание Товара
+                          flowersList[widget.id].description, //Описание Товара
                           style: const TextStyle(fontSize: 20, 
                           color: Colors.black
                           ),
@@ -226,7 +216,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                   left: 20,  
                   right: 20
                 ),
-                height: 800, //высота
+                height: 900, //высота
                 width: 400, //ширина
                   child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -242,7 +232,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                         const SizedBox(height: 20
                         ),
                         Text(
-                          widget.specifications, //Характеристики товара
+                         flowersList[widget.id].specifications, //Характеристики товара
                           style: const TextStyle(fontSize: 20, 
                           color: Colors.black
                           ),
@@ -265,7 +255,7 @@ import 'package:carousel_slider/carousel_slider.dart';
                   left: 20,  
                   right: 20
                 ),
-                height: 500, //высота
+                height: 200, //высота
                 width: 400, //ширина
                   child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -354,6 +344,31 @@ Future<void> _dialogBuilder(BuildContext context) {
           title: const Text('Ошибка'),
           content: const Text(
             'Чтобы просматривать этот раздел, вам необходимо войти.'
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Закрыть'),
+              onPressed: () {
+                  Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<void> _dialogBuilder1(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Ошибка'),
+          content: const Text(
+            'Чтобы преобрести товар, вам необходимо войти.'
           ),
           actions: <Widget>[
             TextButton(

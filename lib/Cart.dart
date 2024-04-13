@@ -61,13 +61,15 @@ class _CartPageState extends State<CartPage> {
             ),
             title: Text(
               item.name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(
+                fontSize: 16,
+               fontWeight: FontWeight.w600),
             ),
             subtitle: Row(
               children: <Widget>[
                    Text('${item.price * item.quantity} Руб',
                 style: const TextStyle(
-                    fontSize: 16, 
+                    fontSize: 15, 
                     color: Colors.black,
                     fontWeight: FontWeight.w400
                     ),
@@ -85,7 +87,7 @@ class _CartPageState extends State<CartPage> {
                 ),
                 Text('${item.quantity}',
                 style: const TextStyle(
-                    fontSize: 16, 
+                    fontSize: 15, 
                     color: Colors.black,
                     fontWeight: FontWeight.w400
                     ),
@@ -106,13 +108,13 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
             child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                    height: 50, //высота
-                    width: 250, //ширина
+                    height: 40, //высота
+                    width: 235, //ширина
                     child: ElevatedButton(
                      style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 15, 184, 0),
@@ -141,7 +143,7 @@ class _CartPageState extends State<CartPage> {
                 Text(
                   '${getTotalCost()} руб.',
                   style: const TextStyle(
-                    fontSize: 18, 
+                    fontSize: 17, 
                     fontWeight: FontWeight.w700
                     ),
                 ),

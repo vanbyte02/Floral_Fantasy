@@ -61,13 +61,7 @@ class LikePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => DescriptionFlovers(
-                        name: likeItems[index].name,
-                        price: likeItems[index].price,
-                        description: likeItems[index].description,
-                        specifications: likeItems[index].specifications,
                         id: flowersList[index].id,
-                        //video: likeItems[index].video,
-                        fimage: flowersList[index].fimage,
                       )),
                 );
               },

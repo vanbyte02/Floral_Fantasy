@@ -110,7 +110,7 @@ class Authorization extends StatelessWidget {
                     child: const Text(
                       'Регистрация', 
                         style: TextStyle(
-                        fontSize: 17, 
+                        fontSize: 16, 
                         color: Colors.black
                         )
                       ),

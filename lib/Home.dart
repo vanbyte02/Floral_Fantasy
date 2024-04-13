@@ -58,13 +58,7 @@ class _HomeState extends State<Home> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => DescriptionFlovers(
-                    name: flowersList[index].name,
-                    price: flowersList[index].price,
-                    description: flowersList[index].description,
-                    specifications: flowersList[index].specifications,
                     id: flowersList[index].id,
-                    //video: flowersList[index].video,
-                    fimage: flowersList[index].fimage,
                   ),
                 ),
               );
@@ -72,35 +66,37 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget> [
-                
                 Image.network(
                   flowersList[index].fimage[0],
                   height: 75,
                   width: 75,
                   ),
-                const SizedBox(height: 5),
-                Text(
+                Expanded(
+                child: Text(
                   textAlign: TextAlign.center,
                   flowersList[index].name,
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                ),
                 const SizedBox(height: 5),
-                Text(
+                Expanded(
+                child: Text(
                   textAlign: TextAlign.center,
                   '${flowersList[index].price} Руб',
                   style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 14,
+                    fontSize: 13,
                   ),
+                ),
                 ),
                 Row(
                 children: <Widget>[
-                  const SizedBox(width: 10),
-                    IconButton(
+                    Expanded(
+                child: IconButton(
                     icon: Icon(
                       Icons.local_grocery_store,
                       size: 20,
@@ -116,7 +112,9 @@ class _HomeState extends State<Home> {
                       });
                     },   
                   ),
-                  IconButton(
+                    ),
+                  Expanded(
+                child: IconButton(
                   icon: Icon(
                     Icons.favorite,
                     size: 20,
@@ -132,6 +130,7 @@ class _HomeState extends State<Home> {
                     });
                   },   
                 ),
+                  ),
                 ],
                 )
               ],
