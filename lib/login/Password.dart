@@ -80,7 +80,7 @@ class Password extends StatelessWidget {
                     width: 200,
                     height: 40, 
                   child: ElevatedButton(
-                    style: TextButton.styleFrom(
+                    style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                           ),

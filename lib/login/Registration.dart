@@ -118,7 +118,7 @@ class Registration extends StatelessWidget {
                         ),
                       );
                     },
-                    style: TextButton.styleFrom(
+                    style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                       ),

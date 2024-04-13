@@ -24,10 +24,6 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Floral Fantasy'),
-        flexibleSpace: const Image(
-          image: NetworkImage('https://www.pngmart.com/files/16/Vector-Lotus-Flower-PNG-Photos.png'),
-          fit: BoxFit.cover,
-        ),
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context)

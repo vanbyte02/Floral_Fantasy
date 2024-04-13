@@ -102,7 +102,7 @@ class Authorization extends StatelessWidget {
                       width: 150,
                       height: 40, 
                   child: ElevatedButton(
-                    style: TextButton.styleFrom(
+                    style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -128,7 +128,7 @@ class Authorization extends StatelessWidget {
                       width: 100,
                       height: 40, 
               child: ElevatedButton(
-                style: TextButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),

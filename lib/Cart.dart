@@ -114,7 +114,7 @@ class _CartPageState extends State<CartPage> {
                     height: 50, //высота
                     width: 250, //ширина
                     child: ElevatedButton(
-                     style: TextButton.styleFrom(
+                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 15, 184, 0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),

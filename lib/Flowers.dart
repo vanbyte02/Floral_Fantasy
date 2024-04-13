@@ -118,13 +118,13 @@
                         ),
                         const SizedBox(height: 10), 
                      IconButton(
-                          icon: const Icon(
-                            Icons.favorite,
-                            size: 25,
-                            color: Colors.red,
-                          ),
-                          onPressed: () {},
-                          )
+                        icon: const Icon(
+                          Icons.favorite,
+                          size: 20,
+                          color:Colors.red,
+                        ),
+                        onPressed: () {},   
+                      ),
                         ]
                       ),
                     ),
@@ -137,8 +137,8 @@
                   SizedBox(
                     height: 70, //высота
                     width: 185, //ширина
-                    child: ElevatedButton(
-                      style: TextButton.styleFrom(
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -151,17 +151,15 @@
                     color: Colors.black
                    ),
                    ),
-                onPressed: () {
-                  
-                },
-            ),
+                onPressed: () {},
+              ),
             ),   
             const SizedBox(width: 20),
             SizedBox(
               height: 70, //высота
               width: 185, //ширина
               child: ElevatedButton(
-                style: TextButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
