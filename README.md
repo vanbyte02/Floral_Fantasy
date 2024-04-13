@@ -16,9 +16,10 @@
 
 
 ## Главный экран приложения
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/c4b56abe-7711-4469-a958-113dcbaf0257)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/3b23b3b9-ee6a-4907-850d-36675679c697)
-![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/68c315b0-fe0f-4a5b-a64c-4f2d9ca7d9c0)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/7c5a4b40-034f-4c3f-a348-537fdfa9ea2f)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/7fae4fec-2f34-4e75-a162-cb5625e06bce)
+![image](https://github.com/vanbyte02/lab_4_06.03.24/assets/144317893/fd1572e3-fb25-4a4d-ba68-0ad352936995)
+
 
 
 ## Строка поиска
