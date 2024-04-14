@@ -148,7 +148,7 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             IconButton(
               icon: const Icon(
-                Icons.local_grocery_store,
+                Icons.local_grocery_store,//Корзина
                 color: Colors.black,
                 size: 25,
                 ),
@@ -162,7 +162,7 @@ class _HomeState extends State<Home> {
             ),
             IconButton(
               icon: const Icon(
-                Icons.favorite_border,
+                Icons.favorite_border,//Избранное
                 color: Colors.red,
                 size: 25,
                 ),
@@ -176,7 +176,7 @@ class _HomeState extends State<Home> {
             ),
             IconButton(
               icon: const Icon(
-                Icons.home,
+                Icons.home,//Гл.экран
                 color: Colors.black,
                 size: 25,
                 ),
@@ -211,7 +211,7 @@ class Search extends StatelessWidget {
   Search({Key? key}) : super(key: key);
 
   void clearText() {
-    fieldText.clear(); // Метод для очистки текстового поля
+    fieldText.clear(); 
   }
 
   @override
