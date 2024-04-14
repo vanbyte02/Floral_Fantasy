@@ -13,9 +13,8 @@ class Registration extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Center(
-          child: Text('Регистрация'),
-        ),
+        centerTitle: true,
+        title: const Text('Регистрация'),
       ),
      body: Center( 
         child: Column(

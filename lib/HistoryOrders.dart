@@ -23,9 +23,23 @@ class OrderDetailsScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final flower = orderItems[index];
           return ListTile(
-            leading: Image.network(flower.fimage[0], width: 50, height: 50, errorBuilder: (context, error, stackTrace) => const Icon(Icons.error)), 
-            title: Text(flower.name),
-            subtitle: Text('Кол-во: ${flower.quantity}, Цена: ${flower.price} Руб, Стоимость: ${flower.quantity * flower.price} Руб'),
+            leading: Image.network(flower.fimage[0], 
+            width: 50, 
+            height: 50, 
+            ), 
+            title: Text(flower.name,
+            style: const TextStyle(
+                fontSize: 17, 
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            subtitle: Text('Кол-во: ${flower.quantity}, Стоимость: ${flower.quantity * flower.price} Руб',
+            style: const TextStyle(
+                    fontSize: 15, 
+                    color: Colors.black,
+                  ),
+            ),
           );
         },
       ),

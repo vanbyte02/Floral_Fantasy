@@ -27,6 +27,7 @@
 
   class _DescriptionFloversState extends State<DescriptionFlovers> {
     int activeIndex = 1;
+    bool isLiked = false;
    
   @override
     Widget build(BuildContext context) {
@@ -105,12 +106,22 @@
                         ),
                         const SizedBox(height: 10), 
                      IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.favorite,
                           size: 30,
-                          color:Colors.red,
+                          color: isLiked ? Colors.red : Colors.black, 
                         ),
-                        onPressed: () {},   
+                        onPressed: () {
+                          setState(() {
+                            isLiked = !isLiked;
+                            if (isLiked) {
+                              like.add(flowersList[widget.id]);
+                            } else {
+                              like.remove(flowersList[widget.id]);
+                            }
+                          }
+                          );
+                        },
                       ),
                         ]
                       ),
@@ -138,7 +149,23 @@
                     color: Colors.black
                    ),
                    ),
-                  onPressed: () {}
+                    onPressed: () {
+                      setState(() {
+                        if (!cart.contains(flowersList[widget.id])) {
+                         cart.add(flowersList[widget.id]);
+                        } else {
+                       cart.remove(flowersList[widget.id]);
+                      }
+                    }
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Товар успешно добавлен в корзину!'), 
+                    duration: Duration(
+                      seconds: 2
+                      )
+                    ),
+                  );
+                },
               ),
             ),   
             const SizedBox(width: 24),
@@ -149,8 +176,8 @@
                 style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 230, 230, 230),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                   child: const Text(
                     'Купить сейчас',
@@ -158,8 +185,11 @@
                     fontSize: 18, 
                     color: Colors.black
                    ),
-                   ),
+                  ),
           onPressed: () {
+                setState(() {
+                  cart.add(flowersList[widget.id]);
+                });
               Navigator.push(
                 context,
                 MaterialPageRoute(

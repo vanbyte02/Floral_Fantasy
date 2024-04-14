@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Before_login/Home1.dart';
-import 'Orders.dart';
+import 'HistoryOrders.dart';
 import 'Cart.dart';
 import 'Like.dart';
 import 'Home.dart';
@@ -29,7 +29,7 @@ class Account extends StatelessWidget {
                 Container(
                   width: 170,
                   height: 240,
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(10),
                   child: Image.network(data[0].image, 
                   fit: BoxFit.cover),
                 ),

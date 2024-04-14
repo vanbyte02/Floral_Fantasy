@@ -27,8 +27,9 @@ class _HomeState extends State<Home> {
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const Search())),
-              icon: const Icon(Icons.search
+                .push(MaterialPageRoute(builder: (_) => Search())),
+              icon: const Icon(
+                Icons.search
             )
           ),
           const SizedBox(width: 30)
@@ -205,8 +206,14 @@ class _HomeState extends State<Home> {
 
 //Поиск в приложении
 class Search extends StatelessWidget {
-  const Search({Key? key}) : super(key: key);
+   final fieldText = TextEditingController();
 
+ Search({Key? key}) : super(key: key);
+
+ void clearText() {
+    fieldText.clear();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -231,6 +238,7 @@ class Search extends StatelessWidget {
                     Icons.clear
                     ),
                   onPressed: () {
+                    fieldText.clear();
                   },
                 ),
                 hintText: 'Поиск...',

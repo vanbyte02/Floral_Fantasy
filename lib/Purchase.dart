@@ -102,7 +102,11 @@ class _PurchaseState extends State<Purchase> {
                 orders.addAll(cart); 
                 cart.clear(); 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Заказ успешно оформлен!'), duration: Duration(seconds: 2)),
+                  const SnackBar(content: Text('Заказ успешно оформлен!'), 
+                  duration: Duration(
+                    seconds: 2
+                    )
+                  ),
                 );
               },
               )

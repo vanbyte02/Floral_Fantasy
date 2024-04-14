@@ -1,4 +1,3 @@
-int selectIndex = -1;
 
 class Flowers {
   int id;
