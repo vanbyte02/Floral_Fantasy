@@ -232,7 +232,7 @@
                         ),
                         const SizedBox(height: 20),
                         Text(
-                          flowersList[widget.id].description, //Описание Товара
+                          flowersList[widget.id].description,
                           style: const TextStyle(fontSize: 20, 
                           color: Colors.black
                           ),
@@ -271,7 +271,7 @@
                         const SizedBox(height: 20
                         ),
                         Text(
-                          flowersList[widget.id].specifications, //Характеристики товара
+                          flowersList[widget.id].specifications,
                           style: const TextStyle(fontSize: 20, 
                           color: Colors.black
                           ),
