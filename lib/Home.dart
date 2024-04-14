@@ -206,47 +206,45 @@ class _HomeState extends State<Home> {
 
 //Поиск в приложении
 class Search extends StatelessWidget {
-   final fieldText = TextEditingController();
+  final fieldText = TextEditingController();
 
- Search({Key? key}) : super(key: key);
+  Search({Key? key}) : super(key: key);
 
- void clearText() {
-    fieldText.clear();
+  void clearText() {
+    fieldText.clear(); // Метод для очистки текстового поля
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Container(
-        width: double.infinity,
-        height: 40,
-        decoration: BoxDecoration(
+        title: Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(
             color: const Color.fromARGB(255, 230, 230, 230),
-            borderRadius: BorderRadius.circular(5)
-            ),
-        child: Center(
-          child: TextField(
-            textAlign: TextAlign.center,
-            decoration: InputDecoration(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: TextField(
+              controller: fieldText,
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-                prefixIcon: const Icon(
-                  Icons.search
-                ),
+                prefixIcon: const Icon(Icons.search),
                 suffixIcon: IconButton(
-                  icon: const Icon(
-                    Icons.clear
-                    ),
+                  icon: const Icon(Icons.clear),
                   onPressed: () {
-                    fieldText.clear();
+                    clearText(); 
                   },
                 ),
                 hintText: 'Поиск...',
-                border: InputBorder.none
-                ),
+                border: InputBorder.none,
+              ),
+            ),
           ),
-        ),  
-      )),
-    );  
+        ),
+      ),
+    );
   }
 }

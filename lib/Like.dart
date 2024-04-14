@@ -56,13 +56,12 @@ class LikePage extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => DescriptionFlovers(
                         id: flowersList[index].id,
-                      )),
+                  )),
                 );
               },
             ),
