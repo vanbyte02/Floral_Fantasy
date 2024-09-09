@@ -289,8 +289,7 @@ List<PersonalData> data = [
   '+7(123)456-78-90', 
   'Rayan_Gosling@gmail.com',
   'Г.Москва',
-//"https://a.d-cd.net/CdQo0gyqC7LJ9RHAO-EMvMj4wYA-960.jpg",
-"https://krots.top/uploads/posts/2022-03/1647163588_60-krot-info-p-raian-gosling-mem-smeshnie-foto-66.jpg",
+  "https://a.d-cd.net/CdQo0gyqC7LJ9RHAO-EMvMj4wYA-960.jpg",
   )
 ];
 
